@@ -1,0 +1,50 @@
+footer.p-5
+    .container
+        .row.d-flex.align-items-top.text-center.text-lg-left
+            .col-12.col-lg-4.order-4.order-lg-1.d-flex.flex-column.justify-content-between
+                .social-icons
+                    ul.d-flex.flex-nowrap.flex-lg-wrap.text-left.justify-content-center.justify-content-lg-start.w-80.my-0.mb-5
+                        +socialIcons
+                .contacts.d-flex.d-lg-none.justify-content-around
+                    .tel
+                        a(href="tel:+79128577186") +79128577186
+                    .email
+                        a(href="mailto:login@email.com") login@email.com
+
+                .confidential.mt-5
+                    a(href="#") Политика конфиденциальности
+                .copyright
+                    .mt-3.p-0 &copy; 2019 Все права защищены
+
+            .col-12.col-lg-3.d-none.d-lg-block.order-1.order-lg-2
+                .footer-menu.d-flex.flex-column.justify-content-between.h-100
+                    .title
+                        h4 О компании
+                    ul.d-flex.flex-column.justify-content-between.m-0
+                        each item, idx in menuItems.about
+                            if idx === 'name'
+                                return
+                            else
+                                li
+                                    a(href='#' + idx)=item
+            .col-12.col-lg-3.d-none.d-lg-block.order-1.order-lg-2
+                .footer-menu.d-flex.flex-column.justify-content-between.h-100
+                    .title
+                        h4 Меню
+                    ul.d-flex.flex-column.justify-content-between.m-0
+                        each item, idx in menuItems
+                            if idx === 'about' || idx === 'calculator'
+                                return
+                            else
+                                li
+                                    a(href='#' + idx)=item
+            .offset-0.order-3
+            .col-12.col-lg-2.d-none.d-lg-block.order-2.order-lg-3
+                .footer-contacts.text-right.d-flex.flex-column.justify-content-between.h-100
+                    .title
+                        h4 Контакты
+                    .tel
+                        a(href="tel:+79128577186") +79128577186
+                    .email
+                        a(href="mailto:login@email.com") login@email.com
+                    .addr Удмуртия, г. Ижевск<br>ул. Ижевская 2

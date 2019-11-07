@@ -1,0 +1,142 @@
+.screen
+#calculator.d-none.d-lg-flex
+    .btns
+        ul.btns-wrap.nav.nav-tabs(role="tablist")
+            li.nav-item.rightBtn
+                a(href="#one" role="tab" data-toggle="tab" aria-selected="true")
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.3955 1L10.3955 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.3955 2V8H16.3955" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.89443 12.5004L5.89443 10.0004C8.89479 6.99998 5.89443 1.99989 1.89443 4.50042C-2.10411 8.5 8.39551 20.5 11.8944 17.5004C15.3944 14.0004 11.8944 10.0004 7.89443 12.5004Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+            li.nav-item.rightBtn
+                a(href="#two" role="tab" data-toggle="tab")
+                    <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1H18M1 1V14M1 1L9.5 8.5L18 1M18 1V14M18 14H1M18 14L14 9.5M1 14L5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+            li.nav-item.rightBtn
+                a(href="#three" role="tab" data-toggle="tab")
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7.5" cy="9" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12.5" cy="9" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.5 5L7.5 8M13.5 5L12.5 8M5.5 14.5V18.5L10 14.5H18.5V1H1V14.5H5.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+            li.nav-item.rightBtn
+                a(href="#four" role="tab" data-toggle="tab")
+                    <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.94592 18.1326C7.7459 18.3437 7.5656 18.5293 7.41078 18.686C7.24451 18.5325 7.04955 18.3432 6.83178 18.1208C6.13517 17.4092 5.24293 16.3965 4.36496 15.2158C2.56769 12.7988 1 9.90177 1 7.5C1 3.91015 3.91015 1 7.5 1C11.0899 1 14 3.91015 14 7.5C14 8.66117 13.5996 9.9721 12.9308 11.3321C12.2667 12.6824 11.3707 14.0154 10.4574 15.2028C9.54625 16.3873 8.63265 17.4077 7.94592 18.1326Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="7.5" cy="7.5" r="3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+            li.nav-item.rightBtn
+                a#calcBtn(href="#five" role="tab" data-toggle="tab")
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+                    <rect x="1" y="1" width="20" height="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 1V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 11H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 6H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.82812 15L3.9997 17.8284" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 15L6.82843 17.8284" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 6H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+    .content.tab-content
+        .tab-pane.fade.show#one(role="tabpanel" aria-labelledby="nav-home-tab").p-3
+            .title.d-flex.justify-content-between.align-items-center.mb-3
+                h4.m-0 Заказать звонок
+                .close-btn &times;
+            .callback-form
+                p.my-5 Представьтесь, мы вам перезвоним.
+                form#callbackForm
+                    .form-group.m-4
+                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                        .small.text-danger#callbackNameHelp
+                    .form-group.m-4
+                        input.form-control(type="phone" name="phone" placeholder="Ваш телефон")
+                        .small.text-danger#callbackPhoneHelp
+                    .form-group.m-4
+                        .g-recaptcha(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
+                    .form-group.m-4
+                        p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
+                    button.btn.zavodpr-btn.mx-4(type="submit" name="btnSubmit")#callbackSubmit Отправить
+        .tab-pane.fade.show#two(role="tabpanel" aria-labelledby="nav-home-tab").p-3
+            .title.d-flex.justify-content-between.align-items-center.mb-3
+                h4.m-0 Задать вопрос
+                .close-btn &times;
+            .question-form
+                p.my-5 Менеджеры компании с радостью ответят на ваши вопросы и произведут расчет стоимости услуг и подготовят индивидуальное коммерческое предложение.
+                form#questionForm
+                    .form-group.m-4
+                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                        .small.text-danger#questionNameHelp
+                    .form-group.m-4
+                        input.form-control(type="phone" name="phone" placeholder="Ваш телефон")
+                        .small.text-danger#phonePhoneHelp
+                    .form-group.m-4
+                        input.form-control(type="email" name="email" placeholder="Ваш email")
+                        .small.text-danger#emailNameHelp
+                    .form-group.m-4
+                        input.form-control(type="text" name="product" placeholder="Интересующий товар/услуга")
+                        .small.text-danger#productPhoneHelp
+                    .form-group.m-4
+                        textarea.form-control(name="question" placeholder="Ваш вопрос")
+                        .small.text-danger#questionPhoneHelp
+                    .form-group.m-4
+                        .g-recaptcha(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
+                    .form-group.m-4
+                        p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
+                    button.btn.zavodpr-btn.mx-4(type="submit" name="btnSubmit")#questionSubmit Отправить
+        .tab-pane.fade.show#three(role="tabpanel" aria-labelledby="nav-home-tab").p-3
+            .title.d-flex.justify-content-between.align-items-center.mb-3
+                h4.m-0 Оставить отзыв
+                .close-btn &times;
+            .response-form
+                form#responseForm
+                    .form-group.m-4
+                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                        .small.text-danger#responseNameHelp
+                    .form-group.m-4
+                        input.form-control(type="text" name="position" placeholder="Должность")
+                        .small.text-danger#responsePositionHelp
+                    .custom-file.mx-4
+                        input(type="file").custom-file-input#customFile
+                        label.custom-file-label.form-control(for="customFile") Приложить файл
+                    .form-group.m-4
+                        textarea.form-control(name="response" placeholder="Ваш отзыв")
+                        .small.text-danger#responseHelp
+                    .form-group.m-4
+                        .g-recaptcha(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
+                    .form-group.m-4
+                        p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
+                    button.btn.zavodpr-btn.mx-4(type="submit" name="btnSubmit")#responseSubmit Отправить
+        .tab-pane.fade.show#four(role="tabpanel" aria-labelledby="nav-home-tab")
+            .title.d-flex.justify-content-between.align-items-center.mb-3.p-3
+                h4.m-0 Адреса
+                .close-btn &times;
+            .modal-map(style="position:absolute;top:70px;bottom:0;width:100%")
+                #modalMap(style="height:100%")
+        .tab-pane.fade.show#five(role="tabpanel" aria-labelledby="nav-home-tab")
+            .preloader
+            section#sectionYmapsForm.p-3.mb-0
+                .title.d-flex.justify-content-between.align-items-center.mb-3
+                    h4.m-0 Калькулятор
+                    .close-btn#closeCalcBtn &times;
+                .calc-form
+                    form#ymapsForm
+                        .form-group.m-4
+                            input.form-control(type="text" name="from" placeholder="Откуда" value="Москва")
+                            .small.text-danger#fromHelp
+                        .form-group.m-4
+                            input.form-control(type="text" name="to" placeholder="Куда" value="Ижевск")
+                            .small.text-danger#toHelp
+                        .form-group.m-4
+                            input.form-control(type="text" name="via" placeholder="Транзитные точки")
+                            .small.text-info#via Добавтье все промежуточные пункты через точку с запятой
+
+                        button.btn.zavodpr-btn.m-4(type="submit" name="btnSubmit")#ymapChange Построить
+                #distance.p-5 1195 км
+            section#sectionYmaps.m-0
+                .container-fluid.p-0
+                    #ymapsContainer

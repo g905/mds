@@ -1,0 +1,82 @@
+include ./mixins
+- let menuItems = {"about":"О компании", "services": "Услуги", "projects":"Готовые проекты", "three":"Реквизиты", "four": "Вопрос-ответ", "five": "Партнеры", "delivery": "Доставка", "catalog": "Каталог продукции", "news": "Новости", "articles": "Статьи", "contacts":"Контакты", "calculator": "Калькулятор"}
+//section#mainmenu
+    .container.p-0
+        nav.navbar.navbar-expand-lg
+            button.navbar-toggler.nav-button(type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation")
+                .animated-icon1
+                    span
+                    span
+                    span
+            a.navbar-brand(href="#")
+                .adaptive-logo.w-50
+                    img(src="img/Главная/logo.png" alt="")
+
+            //.social-icons.d-none.d-lg-block
+                ul.d-flex.text-left
+                    each icon in icons
+                        li
+                            a
+                                i.fab(class=icon)
+            .search-btn
+                i.fas.fa-search.d-block.d-lg-none(style="font-size: 1.5rem")
+
+            .collapse.navbar-collapse.text-center#navbar1
+                ul.navbar-nav.m-auto.d-flex.w-75.justify-content-around
+                    each item, idx in menuItems
+                        if typeof(item) === 'object'
+                            li.nav-item.dropdown
+                                a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")=item.name
+                                .dropdown-menu(aria-labelledby="navbarDropdown")
+                                    each item2, idx2 in item
+                                        if idx2 === 'name'
+                                            return
+                                        else
+                                            a.dropdown-item(href=""+idx2)=item2
+                        else
+                            li.nav-item
+                                a.high.nav-link(href='' + idx)=item
+
+                .search-btn
+                    i.fas.fa-search.d-none.d-lg-block(style="font-size: 1.3rem; opacity: .8")
+
+                //.invite-button.mt-5.mt-lg-0.ml-0.ml-lg-5
+                    .btn.zavodpr-btn(data-toggle="modal" data-target="#invitationModal") Получить приглашение
+
+                .mob-block.d-block.d-lg-none
+                    .contacts-mob.mt-4.d-flex.justify-content-between
+                        .addr.text-left Удмуртия, г. Ижевск<br>ул. Ижевская 2
+                        .contact.text-right
+                            .tel
+                                a(href="tel:+79128577186") +79128577186
+                            .email
+                                a(href="mailto:login@gmail.com") login@gmail.com
+
+                    .hours.mt-4 Ежедневно c 22:00 до 6:00
+
+                    .social-icons.d-block.d-lg-none.mt-4
+                        ul.d-flex.justify-content-center
+                            +socialIcons
+section#mainmenu
+    .container-fluid
+        .row.menu-wrapper.d-flex.justify-content-between
+            .col-5
+                .menu-left.justify-content-between.d-flex.mt-3
+                    .menu-btn.mr-5.bg-white
+                        h5 меню
+                    ul.d-flex.justify-content-around.w-100
+                        - let ii = 0
+                        each item, idx in menuItems
+                            if(ii>= 3)
+                                - return
+                            li
+                                a(href="#")=item
+                            - ii++
+
+            .col-2
+                .logo
+                    a(href="/").d-flex.flex-column
+                        img(src="img/logo.png")
+                        h5 МДС-СТРОЙ
+            .col-5
+                .menu-right.text-right
