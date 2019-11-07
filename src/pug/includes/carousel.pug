@@ -3,13 +3,14 @@ section#carousel
         - let n = 1
         while n < 5
             .item(style="background-image: url('img/bg.jpg')" id = 'slickItem' + n)
-                .container
-                    .title.mb-5
-                        h3="Депрессорно-диспергирующие присадки для дизельного топлива: ангители и концентраты " + n
-                    .content.mb-5
-                        h4 И другие присадки для дизельного топлива
-                    .bottom
-                        a.btn.zavodpr-btn(href="#") Подробнее
+                .container.p-3
+                    .slide-content.d-flex.flex-column.justify-content-center.align-items-start.text-justify
+                        .title.mb-5
+                            h2="Повседневная пркатика " + n
+                        .content.mb-5
+                            h4 Показывает, что существующая теория является качественно новой ступенью современного выполнения задачи. Также как постоянный количественный рост и сфера нашей активности предопределяет высокую потребность
+                        //.bottom
+                            a.btn.zavodpr-btn(href="#") Подробнее
             - n++
     .container.arrows.d-none.d-lg-block
         .slick-arrows#slickArrowsCarousel

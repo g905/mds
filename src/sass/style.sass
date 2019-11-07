@@ -486,7 +486,7 @@ input:checked + .sw-slider:before
         color: $white
         text-decoration: none
   .logo
-    padding: 0 2rem 1.5rem 2rem
+    padding: 0 10% 10.5% 10%
     border: 1px solid rgba(255,255,255,0.2)
     border-top: none
     border-radius: 0 0 .3rem .3rem
@@ -494,15 +494,23 @@ input:checked + .sw-slider:before
     //transition: $trans
     //cursor: pointer
     max-width: 200px
+    min-width: 110px
     margin: auto
     a
       text-decoration: none
       img, h5
         max-width: 150px
         margin: auto
-    h5
-      color: $white
-      font-weight: bold
+      img
+        min-width: 50px
+      h5
+        color: $white
+        font-weight: bold
+        font-size: 80%
+        text-align: center
+        min-width: 50px
+        white-space: nowrap
+        max-width: 100px
 
 // ====================================== Header ===================================
 
@@ -536,11 +544,14 @@ input:checked + .sw-slider:before
     height: 100vh
     .container
       min-height: 500px
-      padding: 6%
+      //padding: 6%
       color: $white
+      margin-top: 200px
+      .slide-content
+        max-width: 50%
       .title
         text-transform: unset
-        h3
+        h3,h2,h1
           font-family: $font-stack
           color: $white
           font-weight: bold
@@ -562,7 +573,13 @@ input:checked + .sw-slider:before
       right: -9999px
       margin: auto
       z-index: -1
-
+@media screen and (max-width: 1024px)
+  #carousel
+    .slick-slider
+      .item
+        .container
+          .slide-content
+            max-width: 100%
 // ===================================== Advantages ================================
 #advantages
   .advantage

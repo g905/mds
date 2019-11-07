@@ -60,11 +60,11 @@ include ./mixins
 section#mainmenu
     .container-fluid
         .row.menu-wrapper.d-flex.justify-content-between
-            .col-5
+            .col-1.col-md-5
                 .menu-left.justify-content-between.d-flex.mt-3
                     .menu-btn.mr-5.bg-white
                         h5 меню
-                    ul.d-flex.justify-content-around.w-100
+                    ul.d-none.d-md-flex.flex-column.flex-lg-row.text-nowrap.justify-content-around.w-100
                         - let ii = 0
                         each item, idx in menuItems
                             if(ii>= 3)
@@ -73,10 +73,10 @@ section#mainmenu
                                 a(href="#")=item
                             - ii++
 
-            .col-2
+            .col-5.col-md-2
                 .logo
                     a(href="/").d-flex.flex-column
                         img(src="img/logo.png")
                         h5 МДС-СТРОЙ
-            .col-5
+            .col-1.col-md-5
                 .menu-right.text-right

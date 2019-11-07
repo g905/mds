@@ -167,7 +167,7 @@ $(()=>{
         infinite: true,
         arrows: true,
         dots: false,
-        autoplay: true,
+        autoplay: false,
         slidesToShow: 1,
         cssEase: "ease-out",
         appendArrows: $('#slickArrowsCarousel'),
