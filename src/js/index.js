@@ -30,8 +30,24 @@ $(()=>{
 
 // ====================================== Navbar icon animation ================================
 
-    $('.nav-button').on('click', function () {
-        $('.animated-icon1').toggleClass('open');
+    $('.animated-icon1').on('click', function () {
+
+        if($('.animated-icon1').hasClass('open')) {
+            $('.animated-icon1').removeClass('open');
+            //$('.fullmenu').animate({marginTop: "0"}, 200);
+            $('.fullmenu-wrapper').animate({opacity: "0", height: "0", width: "0"}, 200, "swing", ()=>{$('.fullmenu-wrapper').removeClass('visible');});
+            $('#mainmenu').css('position', 'absolute');
+            $('.menu-short').removeClass('hidden');
+        } else {
+            $('.animated-icon1').addClass('open');
+            $('.fullmenu-wrapper').addClass('visible');
+            //$('.fullmenu').animate({marginTop: "200px"}, 200);
+            $('.fullmenu-wrapper').animate({opacity: ".95", height: "100vh", width: "100%"}, 200, "swing");
+
+            $('#mainmenu').css('position', 'fixed');
+            $('.menu-short').addClass('hidden');
+        }
+
     });
 
 // ===================================== Custom File Input =====================================
@@ -167,7 +183,7 @@ $(()=>{
         infinite: true,
         arrows: true,
         dots: false,
-        autoplay: false,
+        autoplay: true,
         slidesToShow: 1,
         cssEase: "ease-out",
         appendArrows: $('#slickArrowsCarousel'),

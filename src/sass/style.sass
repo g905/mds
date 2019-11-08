@@ -3,6 +3,7 @@
 @import "~slick-carousel/slick/slick"
 //@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
 @import "~pace-js/themes/white/pace-theme-flash.css"
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic')
 
 $font-stack: -apple-system, BlinkMacSystemFont,Roboto,'Open Sans','Helvetica Neue',sans-serif
 $font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
@@ -44,6 +45,7 @@ a
   transition: $trans
   &:hover
     opacity: 1
+    color: $lblue
 
 a.high, .dropdown a
   color: $lblue!important
@@ -54,7 +56,7 @@ a.high, .dropdown a
   font-weight: 400
   src: url(../fonts/Merriweather/Merriweather-Regular.ttf)
 
-@font-face
+//@font-face
   font-family: 'Roboto'
   font-style: normal
   font-weight: 400
@@ -115,6 +117,8 @@ body
 section
   margin-bottom: 50px
   overflow: hidden
+  .title
+    margin: 5rem auto
 #header, #mainmenu, #gallery
   margin-bottom: 0
 
@@ -265,13 +269,18 @@ input:checked + .sw-slider:before
 // ====================================== Animated mobile menu =============================
 
 .animated-icon1
-  width: 30px
+  width: 40px
   height: 20px
   position: relative
   margin: 0px
   transform: rotate(0deg)
   transition: .5s ease-in-out
   cursor: pointer
+  opacity: .8
+  &:hover
+    opacity: 1
+    span
+      width: 100%!important
 
 .animated-icon1 span
   display: block
@@ -285,22 +294,28 @@ input:checked + .sw-slider:before
   transition: .25s ease-in-out
 
 .animated-icon1 span
-  background: $black
+  background: $white
 
 .animated-icon2 span
-  background: $black
+  background: $white
 
 .animated-icon3 span
-  background: $black
+  background: $white
 
 .animated-icon1 span:nth-child(1)
   top: 0px
+  width: 70%
 
 .animated-icon1 span:nth-child(2)
   top: 10px
+  width: 90%
 
 .animated-icon1 span:nth-child(3)
   top: 20px
+  width: 80%
+
+.animated-icon1.open span
+  width: 100%!important
 
 .animated-icon1.open span:nth-child(1)
   top: 11px
@@ -315,6 +330,16 @@ input:checked + .sw-slider:before
   transform: rotate(-135deg)
 
 // ====================================== Social Icons =============================
+
+#social
+  position: absolute
+  bottom: 2.5rem
+  writing-mode: tb-rl
+  transform: rotate(-180deg)
+  height: 50%
+  a
+    text-transform: uppercase
+    color: $white
 
 .social-icons li
   list-style-type: none
@@ -360,25 +385,27 @@ input:checked + .sw-slider:before
 
 // ====================================== Buttons ==================================
 
-.zavodpr-btn
+.mds-btn
   font-size: 14px
-  color: $black
-  background: $green
+  color: $white
+  background: $blue
   cursor: pointer
-  border-radius: 20px
+  border-radius: 30px
   transition: $trans
   white-space: nowrap
   opacity: .8
   max-width: 200px
   min-width: 200px
   line-height: 100%
-  padding: 10px
+  padding: 15px
+  text-transform: uppercase
   &.blue-btn
     background: transparent
     border: 2px solid $blue
     color: $blue
   &:hover
     opacity: 1
+    color: $white
 .transparent
   background: transparent!important
   color: #fff!important
@@ -472,19 +499,57 @@ input:checked + .sw-slider:before
   z-index: 9999
   overflow: visible
   background: $transparent
-  position: fixed
+  position: absolute
   z-index: 9999
-  nav
-    li
-      a
-        font-size: .9rem
-        text-transform: uppercase
+  .wave-icon
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 30px
+    text-align: center
+    width: 100%
+  .menu-short
+    &.hidden
+      display: none!important
+  .fullmenu-wrapper
+    position: fixed
+    width: 100%
+    background: $dblue
+    opacity: 0
+    height: 0
+    display: none
+    &.visible
+      display: block
+    .fullmenu
+      margin-top: 0
+      color: $white
+    .ul-wrapper
+      height: 100vh
+      display: flex
+      ul
+        list-style-type: none
+        max-height: 300px
+        width: 70%
+        margin-left: 0
+        li
+          a
+            font-size: 2rem
+    .right-wrapper
+      .social
+        max-height: 300px
+        height: 100%
+        margin: auto
+        align-items: flex-end
+        a
+          text-transform: uppercase
+          color: $white
   ul
     list-style-type: none
     li
       a
         color: $white
         text-decoration: none
+        font-size: 120%
   .logo
     padding: 0 10% 10.5% 10%
     border: 1px solid rgba(255,255,255,0.2)
@@ -511,6 +576,20 @@ input:checked + .sw-slider:before
         min-width: 50px
         white-space: nowrap
         max-width: 100px
+  .menu-right
+    a
+      color: $white
+      text-decoration: none
+      font-size: 120%
+    .email
+      a
+        font-size: 100%
+  .callback-icon
+    background: blue
+    width: 50px
+    height: 50px
+    border-radius: 25px
+    margin-left: 20px
 
 // ====================================== Header ===================================
 
@@ -533,22 +612,24 @@ input:checked + .sw-slider:before
 // ==================================== Carousel ===================================
 
 #carousel
+  margin-bottom: 0
   .slick-slider
-    height: 100vh
+    min-height: 100vh
   .item
     position: relative
     overflow: hidden
     min-height: 500px
     background-size: cover
     background-position: center
-    height: 100vh
+    min-height: 100vh
     .container
       min-height: 500px
       //padding: 6%
       color: $white
-      margin-top: 200px
+      //margin-top: 200px
       .slide-content
         max-width: 50%
+        min-height: 100vh
       .title
         text-transform: unset
         h3,h2,h1
@@ -573,6 +654,26 @@ input:checked + .sw-slider:before
       right: -9999px
       margin: auto
       z-index: -1
+  .form-order-wrapper
+    position: absolute
+    bottom: 0
+    right: 0
+    max-width: 45%
+    width: 100%
+    display: flex
+    min-height: 100vh
+    .form-order
+      background: rgba(0,0,0,.4)
+      border-radius: 1rem 0
+      padding: 2rem
+      max-width: 500px
+      min-width: 420px
+      margin: auto
+      color: $white
+      h4
+        color: $white
+        text-transform: uppercase
+
 @media screen and (max-width: 1024px)
   #carousel
     .slick-slider
@@ -580,6 +681,29 @@ input:checked + .sw-slider:before
         .container
           .slide-content
             max-width: 100%
+    .form-order-wrapper
+      display: none
+// ====================================== Services =================================
+#services
+  .title
+    h2
+      color: $blue
+  .service-card
+    border: unset
+    overflow: hidden
+    max-width: 45%
+    min-width: 340px
+    margin: 0 auto
+    .card-img
+      overflow: hidden
+      max-height: 310px
+    img
+      transition: transform 5s ease-in-out
+      &.img-hover
+        &:hover
+          transform: scale(1.1) rotateZ(2deg)
+    .card-body
+      margin: 10px 0
 // ===================================== Advantages ================================
 #advantages
   .advantage
@@ -790,6 +914,11 @@ input:checked + .sw-slider:before
   color: #828282
   margin-top: 50px
   margin-bottom: 50px
+  position: absolute
+  bottom: 0
+  writing-mode: tb-rl
+  transform: rotate(-180deg)
+  min-height: 400px
   p
     margin: 0
   .breadcrumb-item
