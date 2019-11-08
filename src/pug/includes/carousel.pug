@@ -3,7 +3,7 @@ section#carousel
         - let n = 1
         while n < 5
             .item(style="background-image: url('img/bg.jpg')" id = 'slickItem' + n)
-                .container.p-3
+                .container
                     .slide-content.d-flex.flex-column.justify-content-center.align-items-start.text-justify
                         .title.mb-5
                             h2="Повседневная пркатика " + n
@@ -20,7 +20,7 @@ section#carousel
                 i.fas.fa-chevron-right
 
     #social
-        .bread-wrapper.d-none.d-md-flex.justify-content-between.align-items-center.mr-5
+        .bread-wrapper.d-none.d-md-flex.justify-content-between.align-items-center
             .instagram
                 a(href="#") instagram
             .twitter
