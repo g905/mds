@@ -35,14 +35,14 @@ $(()=>{
         if($('.animated-icon1').hasClass('open')) {
             $('.animated-icon1').removeClass('open');
             //$('.fullmenu').animate({marginTop: "0"}, 200);
-            $('.fullmenu-wrapper').animate({opacity: "0", height: "0", width: "0"}, 200, "swing", ()=>{$('.fullmenu-wrapper').removeClass('visible');});
+            $('.fullmenu-wrapper').animate({opacity: "0", height: "0"}, 200, "swing", ()=>{$('.fullmenu-wrapper').removeClass('visible');});
             $('#mainmenu').css('position', 'absolute');
             $('.menu-short').removeClass('hidden');
         } else {
             $('.animated-icon1').addClass('open');
             $('.fullmenu-wrapper').addClass('visible');
             //$('.fullmenu').animate({marginTop: "200px"}, 200);
-            $('.fullmenu-wrapper').animate({opacity: ".95", height: "100vh", width: "100%"}, 200, "swing");
+            $('.fullmenu-wrapper').animate({opacity: ".95", height: "100vh"}, 200, "swing");
 
             $('#mainmenu').css('position', 'fixed');
             $('.menu-short').addClass('hidden');
@@ -71,6 +71,13 @@ $(()=>{
             scrollTop: 0
         }, 400);
         return false;
+    });
+
+// ================================== Carousel form complete ===================================
+
+    $('#carousel .form-order').submit((e) => {
+        e.preventDefault();
+        $('.form-order-wrapper').addClass('success');
     });
 
 // ================================== View of Items in Catalog =================================
@@ -191,39 +198,40 @@ $(()=>{
         nextArrow: $('#slickArrowsCarousel .next')
     };
 
-    let slickSolutions = {
+    let slickVendors = {
         infinite: false,
         arrows: true,
-        dots: false,
+        dots: true,
         autoplay: false,
         slidesToShow: 4,
         slidesToScroll: 1,
-        appendArrows: $('#slickArrowsSolutions'),
-        prevArrow: $('#slickArrowsSolutions .prev'),
-        nextArrow: $('#slickArrowsSolutions .next'),
+        appendArrows: $('#slickArrowsVendors'),
+        prevArrow: $('#slickArrowsVendors .prev'),
+        nextArrow: $('#slickArrowsVendors .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
-                arrows: false,
+                arrows: true,
                 dots: true,
                 slidesToShow: 1
             }
         }]
     };
 
-    let slickTeam = {
+    let slickProjects = {
         infinite: false,
         arrows: true,
-        dots: false,
+        dots: true,
         autoplay: false,
         slidesToShow: 3,
         slidesToScroll: 1,
-        prevArrow: '<button class="slick-arrow prev"><i class="fas fa-chevron-left"></i></button>',
-        nextArrow: '<button class="slick-arrow next"><i class="fas fa-chevron-right"></i></button>',
+        appendArrows: $('#slickArrowsProjects'),
+        prevArrow: $('#slickArrowsProjects .prev'),
+        nextArrow: $('#slickArrowsProjects .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
-                arrows: false,
+                arrows: true,
                 dots: true,
                 slidesToShow: 1
             }
@@ -273,7 +281,7 @@ $(()=>{
     let slickPartners = {
         infinite: false,
         arrows: true,
-        dots: false,
+        dots: true,
         autoplay: false,
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -331,8 +339,8 @@ $(()=>{
     };
 
     $('.carousel').slick(slickCarousel);
-    $('.slick-solutions').slick(slickSolutions);
-    $('.slick-team').slick(slickTeam);
+    $('.slick-vendors').slick(slickVendors);
+    $('.slick-projects').slick(slickProjects);
     $('.slick-news').slick(slickNews);
     $('.slick-articles').slick(slickArticles);
     $('.slick-partners').slick(slickPartners);

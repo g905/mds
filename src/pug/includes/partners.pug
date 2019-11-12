@@ -1,16 +1,20 @@
 section#partners
     .container
-        .partners.title-row.d-flex.align-items-center.justify-content-between.mb-3
-            .title
-                h3 Наши партнеры
-            .slick-arrows.d-none.d-lg-flex#arrowsPartners
-                button.slick-arrow.prev
-                    i.fas.fa-chevron-left
-                button.slick-arrow.next
-                    i.fas.fa-chevron-right
-        .slick-partners
-            - let n = 1
-            while n <= 6
+        .title
+            h2 Наши партнеры
+        .partners-wrap
+            .slick.slick-partners
                 .item.partner
-                    img(src="/img/О%20компании/partner-"+n+".png")
-                - n++
+                    img(src="img/partners/Аспэк.png")
+                .item.partner
+                    img(src="img/partners/ассо-строй.png")
+                .item.partner
+                    img(src="img/partners/ГЖУ.jpg")
+                .item.partner
+                    img(src="img/partners/ГКБ УР №6.jpg")
+                .item.partner
+                    img(src="img/partners/Калинка групп.jpg")
+                .item.partner
+                    img(src="img/partners/Концерн Калашникова.jpg")
+                .item.partner
+                    img(src="img/partners/титан.jpg")
