@@ -9,13 +9,13 @@ window.$ = $;
 //require("@fancyapps/fancybox");
 import 'slick-carousel'
 //import List from 'list.js'
-/*import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList } from '@fortawesome/free-solid-svg-icons'
-library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList );
+import { faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList, faPhone } from '@fortawesome/free-solid-svg-icons'
+library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faPhone, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList );
 
 // ====================================== Replace fa-icons with SVGs ===========================
-dom.watch();*/
+dom.watch();
 
 $(()=>{
     Pace.start();
@@ -75,10 +75,20 @@ $(()=>{
 
 // ================================== Carousel form complete ===================================
 
-    $('#carousel .form-order').submit((e) => {
+    $('#carousel .form-order, #map .form-order').submit((e) => {
         e.preventDefault();
-        $('.form-order-wrapper').addClass('success');
+        $(e.target).parent().parent().addClass('success');
     });
+
+// =========================================== Ymaps ===========================================
+    ymaps.ready(init);
+    function init() {
+        let myMap = new ymaps.Map("ymapsContainer", {
+            center: [55.76, 37.64],
+            zoom: 9
+        });
+        myMap.behaviors.disable('scrollZoom');
+    }
 
 // ================================== View of Items in Catalog =================================
 
@@ -190,7 +200,7 @@ $(()=>{
         infinite: true,
         arrows: true,
         dots: false,
-        autoplay: false,
+        autoplay: true,
         slidesToShow: 1,
         cssEase: "ease-out",
         appendArrows: $('#slickArrowsCarousel'),

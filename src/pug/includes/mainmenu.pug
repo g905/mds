@@ -1,5 +1,5 @@
 include ./mixins
-- let menuItems = {"about":"О компании", "services": "Услуги", "projects":"Готовые проекты", "three":"Реквизиты", "four": "Вопрос-ответ", "five": "Партнеры", "delivery": "Доставка"}
+- let menuItems = {"about":"О компании", "services": "Услуги", "projects":"Готовые проекты", "three":"Реквизиты", "four": "Вопрос-ответ", "five": "Партнеры"}
 //section#mainmenu
     .container.p-0
         nav.navbar.navbar-expand-lg
@@ -57,7 +57,7 @@ include ./mixins
                     .social-icons.d-block.d-lg-none.mt-4
                         ul.d-flex.justify-content-center
                             +socialIcons
-section#mainmenu
+section#mainmenu(data-aos="fade-down" data-aos-delay="5000")
     .fullmenu-wrapper
         .fullmenu
             .container
@@ -77,11 +77,7 @@ section#mainmenu
                                     a(href="#") whatsapp
                                 button.btn.mds-btn.transparent Написать нам
                 .wave-icon
-                    <svg width="88" height="30" viewBox="0 0 88 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.7" d="M21.1 6.16165L26.7 2.38515L32.3 6.16165C39.8 11.1307 49.4 11.1307 56.9 6.16165L62.5 2.38515L68.1 6.16165C71.8 8.64618 76.1 9.93814 80.4 9.93814C82.1 9.93814 83.8 9.73938 85.4 9.34185C86.1 8.44742 86.8 7.55299 87.4 6.65855C81.4 8.84495 74.7 8.14928 69.3 4.57154L62.5 0L55.8 4.47216C49 8.94433 40.3 8.94433 33.5 4.47216L26.8 0L20 4.47216C14 8.5468 6.4 8.94433 0 5.76412C0.7 6.75794 1.4 7.75175 2.2 8.74556C8.5 10.8326 15.4 9.93814 21.1 6.16165Z" fill="#1BCCD7"/>
-                    <path opacity="0.7" d="M21.1 16.0999L26.7 12.3234L32.3 16.0999C39.8 21.069 49.4 21.069 56.9 16.0999L62.5 12.3234L68.1 16.0999C71.8 18.5844 76.1 19.8764 80.4 19.8764C82.1 19.8764 83.8 19.6776 85.4 19.2801C86.1 18.3857 86.8 17.4912 87.4 16.5968C81.4 18.7832 74.7 18.0875 69.3 14.5098L62.5 9.93823L55.8 14.4104C49 18.8826 40.3 18.8826 33.5 14.4104L26.8 9.93823L20 14.4104C14 18.4851 6.4 18.8826 0 15.7024C0.7 16.6962 1.4 17.69 2.2 18.6838C8.5 20.7708 15.4 19.8764 21.1 16.0999Z" fill="#1BCCD7"/>
-                    <path opacity="0.7" d="M21.1 26.0381L26.7 22.2616L32.3 26.0381C39.8 31.0072 49.4 31.0072 56.9 26.0381L62.5 22.2616L68.1 26.0381C71.8 28.5226 76.1 29.8146 80.4 29.8146C82.1 29.8146 83.8 29.6158 85.4 29.2183C86.1 28.3239 86.8 27.4295 87.4 26.535C81.4 28.7214 74.7 28.0257 69.3 24.448L62.5 19.8765L55.8 24.3486C49 28.8208 40.3 28.8208 33.5 24.3486L26.8 19.8765L20 24.3486C14 28.4233 6.4 28.8208 0 25.6406C0.7 26.6344 1.4 27.6282 2.2 28.622C8.5 30.709 15.4 29.8146 21.1 26.0381Z" fill="#1BCCD7"/>
-                    </svg>
+                    include ../../img/waves-icon.svg
 
 
 
@@ -117,7 +113,7 @@ section#mainmenu
                             a(href="mailto:login@gmail.com") login@gmail.com
                     .callback.ml-5.d-flex.align-items-center
                         a(href="#") Обратный звонок
-                        .callback-icon.d-none.d-md-block
-                            i.fas.fa-phone
+                        .callback-icon.d-none.d-md-flex.text-white
+                            i.fas.fa-phone.d-flex
                     .callback-icon.d-block.d-md-none
                         i.fas.fa-phone

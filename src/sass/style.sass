@@ -118,6 +118,9 @@ section
   overflow: hidden
   .title
     margin: 5rem auto
+    text-align: center
+    h2
+      color: $blue
 #header, #mainmenu, #gallery
   margin-bottom: 0
 
@@ -541,6 +544,7 @@ input:checked + .sw-slider:before
         width: 70%
         margin-left: 0
         li
+          flex-basis: 5rem
           a
             font-size: 2rem
     .right-wrapper
@@ -593,12 +597,13 @@ input:checked + .sw-slider:before
     .email
       a
         font-size: 100%
+footer, #mainmenu
   .callback-icon
-    background: blue
-    width: 50px
-    height: 50px
-    border-radius: 25px
+    background: $blue
+    border-radius: 2rem
+    padding: 1rem
     margin-left: 20px
+    width: fit-content
 
 // ====================================== Header ===================================
 
@@ -631,6 +636,8 @@ input:checked + .sw-slider:before
     background-position: center
     min-height: 100vh
     padding-top: 100px
+    .slide-icon
+      color: $lblue
     .container
       color: $white
     .slide-content
@@ -649,45 +656,51 @@ input:checked + .sw-slider:before
             color: $white
   .form-order-wrapper
     position: absolute
-    bottom: calc(50vh - 200px)
+    bottom: calc(50vh - 300px)
     left: auto
     width: 100%
-    perspective: 1000px
-    .form-complete
-      width: 400px
-      height: 100%
-      background: $green
-      display: flex
-      position: absolute
-      left: 0
-      padding: 1.5rem
-      transition: all .4s ease-in-out
-      transform: translateZ(0px) rotateY(90deg)
-      transform-origin: left
-      /* transform: rotateY(180deg)
-      opacity: 0
-    .form-order
-      background: rgba(0,0,0,.4)
-      border-radius: 1rem 0
-      //padding: 1.5rem
-      margin: 0!important
+.form-order-wrapper
+
+  perspective: 1000px
+  .form-complete
+    width: 500px
+    height: 100%
+    background: $green
+    display: flex
+    position: absolute
+    left: 0
+    padding: 1.5rem
+    transition: all .4s ease-in-out
+    transform: rotateY(90deg)
+    transform-origin: left
+    background: rgba(0,0,0,.5)
+    align-items: center
+    h2
+      transform: rotateY(180deg)
+      text-align: center
+    opacity: 0
+  .form-order
+    background: rgba(0,0,0,.4)
+    border-radius: 1rem 0
+    //padding: 1.5rem
+    margin: 0!important
+    color: $white
+    padding: 1.5rem
+    transition: all .4s ease-in-out
+    transform-origin: left
+    transform: translateZ(0px)
+    width: 500px
+    opacity: 1
+    h4
       color: $white
-      padding: 1.5rem
-      transition: all .4s ease-in-out
-      transform-origin: left
-      transform: translateZ(0px)
-      width: 400px
+      text-transform: uppercase
+  &.success
+    .form-complete
+      transform: translateX(500px) rotateY(180deg)
       opacity: 1
-      h4
-        color: $white
-        text-transform: uppercase
-    &.success
-      .form-complete
-        transform: translateX(400px) rotateY(180deg)
-        opacity: 1
-      .form-order
-        transform: translateX(400px) rotateY(90deg)
-        opacity: 0
+    .form-order
+      transform: translateX(400px) rotateY(90deg)
+      opacity: 0
   .container.arrows
     position: relative
   .slick-arrows
@@ -909,6 +922,32 @@ input:checked + .sw-slider:before
             .bottom
               height: 35px
               opacity: 1
+// ======================================= Map =====================================
+#map
+  background: $dblue
+  color: $white
+  h2
+    margin: 0
+  .map-form-wrapper
+    display: flex
+    height: 100%
+    align-items: center
+    &.success
+      .form-complete
+        transform: translateX(600px) rotateY(180deg)
+        opacity: 1
+      .form-order
+        transform: translateX(600px) rotateY(90deg)
+        opacity: 0
+  .form-order
+    background: none
+    width: 600px
+  .form-complete
+    width: 600px
+
+// ====================================== YMaps ====================================
+#ymapsContainer
+  min-height: 650px
 // ===================================== Catalog ===================================
 #catalog
   .catalog-item
@@ -1125,101 +1164,35 @@ input:checked + .sw-slider:before
 
 // ===================================== Footer ====================================
 footer
+  color: $white
   background: $black
+  a
+    color: $white!important
+    font-size: .9rem
+  .policy-wrap, .last-wrap, .social, .contacts
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    height: 100%
+    .conf
+      text-transform: uppercase
+  .social
+    text-transform: uppercase
+  .last-wrap
+    a
+      font-size: small
+  .contacts
+    .phone
+      a
+        font-size: x-large
   ul
     list-style-type: none
-
-// =================================== Calculator ==================================
-
-.screen
-  position: fixed
-  left: 0
-  top: 0
-  width: 100%
-  height: 100%
-  background: $black
-  z-index: 9999
-  opacity: .5
-  display: none
-  &.screen-show
-    display: block
-
-#calculator
-  position: fixed
-  right: -580px
-  height: 100%
-  z-index: 99999
-  top: 0
-  transition: $trans
-  .btns
-    width: 70px
-    background: transparent
-    .btns-wrap
-      position: relative
-      top: 20%
-      box-shadow: 0 0 30px rgba(0,0,0,.6)
-      z-index: 99
-  .content
-    width: 580px
-    background: $white
-    z-index: 999
-    position: relative
-    .preloader
-      width: 100%
-      height: 100%
-      opacity: .5
-      top: 0
-      left: 0
-      position: absolute
-      z-index: 999
-      background: white
-      display: none
-  .rightBtn
-    border: 0
-    width: 100%
-    height: 70px
-    position: relative
-    line-height: 70px
-    opacity: 1
-    min-height: 70px
-    border-bottom: 2px solid $lgray
-    background: $white
-    cursor: pointer
-    a
-      display: block
-      width: 100%
-      height: 100%
-      line-height: 70px
-      text-align: center
-      &.active
-        svg
-          color: $blue
-          opacity: 1
-    svg
-      color: $black
-      opacity: .5
-      transition: $trans
-    &:hover
-      svg
-        color: $blue
-        opacity: 1
-
-.calc-show
-  right: 0!important
-.close-btn
-  font-size: 1.5rem
-  opacity: .5
-  cursor: pointer
-  transition: $trans
-  &:hover
-    opacity: 1
-#sectionYmapsForm
-  height: 600px
-  #ymapsForm
-    .form-group
-      .small
-        text-align: right
-        font-size: .8rem
+    max-height: 150px
+    li
+      flex-basis: 2.5rem
+      margin-right: 2rem
+      display: flex
+      align-items: center
 
 // ================================= scrollTop button ==============================
 .scrollTop
@@ -1247,13 +1220,6 @@ footer
 // ====================================== index ====================================
 .index-ul
   list-style-type: none
-
-// ====================================== YMaps ====================================
-#ymapsContainer
-  position: absolute
-  bottom: 0
-  width: 100%
-  height: 40%
 
 // ====================================== Team =====================================
 .member-card
