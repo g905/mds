@@ -3,7 +3,7 @@
 @import "~slick-carousel/slick/slick"
 //@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
 @import "~pace-js/themes/white/pace-theme-flash.css"
-//@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic')
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic')
 
 $font-stack: -apple-system, BlinkMacSystemFont,Roboto,'Open Sans','Helvetica Neue',sans-serif
 $font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
@@ -15,8 +15,10 @@ $trans: all .2s ease-in-out
 $black: #1E1616
 $white: #fff
 $red: #CE0000
-$lgray: #eee
+$lgray_old: #eee
+$lgray: #F7F7F7
 $gray: #F7F7F7
+$dgray: #ddd
 $blue: #005C9D
 $dblue: #071739
 $lblue: #1BAAD7
@@ -365,7 +367,7 @@ input:checked + .sw-slider:before
   display: flex
   left: 0
   .bread-wrapper
-    height: 60%
+    height: 40%
     margin-right: 1em
     margin-top: 1em
   a
@@ -880,9 +882,16 @@ footer, #mainmenu
   overflow: visible
   padding-top: 4rem
   //padding-bottom: 8rem
+  position: relative
   color: $white
+  .white-space
+    position: absolute
+    width: 100%
+    height: 4rem
+    background: white
+    bottom: 0
   .adv-img
-    margin-bottom: -4rem
+    //margin-bottom: -4rem
     img
       width: 100%
       border-radius: .5rem
@@ -959,7 +968,7 @@ footer, #mainmenu
 // ===================================== Projects ==================================
 #projects
   background: $lgray
-  padding-top: 5rem
+  padding-top: 2rem
   .projects-wrap
     .item.project
       display: flex
@@ -1105,6 +1114,7 @@ footer, #mainmenu
       color: $lblue
     h3
       margin: 2rem 0
+
 #aboutFacts
   margin: 5rem 0
   .facts-wrap
@@ -1124,11 +1134,13 @@ footer, #mainmenu
         font-size: 1.2rem
         text-transform: uppercase
         span
-          margin: 0 1.2rem
+          margin: 0 1.2rem 0 0
           font-size: 4rem
           font-weight: bold
           color: $lblue
           line-height: 100%
+      .content
+        text-align: justify
 
 // ==================================== Feedback ===================================
 .bg-white
@@ -1324,11 +1336,18 @@ footer
     flex-direction: column
     justify-content: space-between
     height: 100%
+    max-height: 150px
+    .twitter, .whatsapp, .instagram, .write-us, .electron
+      flex-basis: 2rem
+      display: flex
+      align-items: center
     .conf
       text-transform: uppercase
   .social
     text-transform: uppercase
   .last-wrap
+    .electron
+      justify-content: flex-end
     a
       font-size: small
   .contacts
@@ -1339,7 +1358,7 @@ footer
     list-style-type: none
     max-height: 150px
     li
-      flex-basis: 2.5rem
+      flex-basis: 2rem
       margin-right: 2rem
       display: flex
       align-items: center
@@ -1380,7 +1399,8 @@ footer
   .service-card
     padding: 1rem 0
     border: 0
-    border-top: 1px solid $lgray
+    border-top: 1px solid $dgray
+    background: $lgray
     .svc-img
       flex-basis: 30%
       img
@@ -1393,9 +1413,15 @@ footer
     .card-footer
       background: transparent
       border-top: 0
+      white-space: nowrap
+      a
+        color: $blue
+        font-weight: bold
+        text-decoration: none
 
 #pageService
   .content
+    text-align: justify
     h3
       margin: 1.5rem 0
 
@@ -1404,7 +1430,8 @@ footer
   .feedback-card
     padding: 1rem 0
     border: 0
-    border-top: 1px solid $lgray
+    border-top: 1px solid $dgray
+    background: $lgray
     .fdb-img
       flex-basis: 30%
       img
@@ -1412,6 +1439,7 @@ footer
     .card-body
       display: flex
       flex-direction: column
+      padding: 1rem 0
       .fdb-icon
         margin: 0 1rem
         color: $lblue
