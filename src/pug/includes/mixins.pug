@@ -1,7 +1,38 @@
-mixin page(href, title)
+mixin projects(page)
+    - let bg = ""
+    - let title = "Готовые проекты"
+    if((page === "service") || (page === "projects"))
+        - bg = "bg-white"
+        - title = "Похожие проекты"
+
+    section#projects(class=bg)
+        .container
+            .title
+                h2=title
+            .projects-wrap
+                .slick.slick-projects
+                    .item.project
+                        .card.project-card(style="background-image: url('img/1.jpg')")
+                            .card-title
+                                h4 Название проекта
+                                .bottom
+                                    a(href="#") Подробнее
+                    .item.project
+                        .card.project-card(style="background-image: url('img/2.jpg')")
+                            .card-title
+                                h4 Длинное название проекта в две строки, примерно так
+                                .bottom
+                                    a(href="#") Подробнее
+                    .item.project
+                        .card.project-card(style="background-image: url('img/3.jpg')")
+                            .card-title
+                                h4 Название проекта
+                                .bottom
+                                    a(href="#") Подробнее
+mixin page(href, title, active)
     li
         h3
-            a.high(href=href)=title
+            a.high(class=(active ? "" : "dis") href=(active ? href : "javascript:;"))=title
 
 mixin breadcrumbs(crumbs)
     section#breadcrumb

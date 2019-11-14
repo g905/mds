@@ -1,18 +1,20 @@
 include ../includes/mixins
-
+block variables
+    - let page = "page_list"
 doctype html
 
 html(lang="ru")
     include ../includes/head
-    body
+    body.list
     .container.mt-5
         ul.index-ul.d-flex.flex-column.flex-wrap
-            +page("main.html", "Главная")
-            +page("about.html", "О компании")
-            +page("services.html", "Услуги")
-            +page("service.html", "Услуга")
-            +page("projects.html", "Готовые проекты")
-            +page("feedback.html", "Отзывы")
+            +page("main.html", "Главная", true)
+            +page("about.html", "О компании", true)
+            +page("services.html", "Услуги", true)
+            +page("service.html", "Услуга", true)
+            +page("tender.html", "Тендер", true)
+            +page("projects.html", "Готовые проекты", true)
+            +page("feedback.html", "Отзывы", true)
             +page("info.html", "Новости/Статьи")
             +page("info-detail.html", "Новости/Статьи детально")
-            +page("contacts.html", "Контакты")
+            +page("contacts.html", "Контакты", true)

@@ -3,7 +3,7 @@
 @import "~slick-carousel/slick/slick"
 //@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
 @import "~pace-js/themes/white/pace-theme-flash.css"
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic')
+//@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic')
 
 $font-stack: -apple-system, BlinkMacSystemFont,Roboto,'Open Sans','Helvetica Neue',sans-serif
 $font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
@@ -112,12 +112,22 @@ body
   font-family: $font-stack
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  background: $white
+  background: $lgray
+  &.tender
+    background: $dblue
+  &.list
+    a.dis
+      opacity: .5
+      cursor: not-allowed
+      text-decoration: none
+      &:hover
+        opacity: .5
+
 section
   //margin-bottom: 50px
   overflow: hidden
   .title
-    margin: 5rem auto
+    margin: 2rem auto
     text-align: center
     h2
       color: $blue
@@ -304,6 +314,19 @@ input:checked + .sw-slider:before
 .animated-icon3 span
   background: $white
 
+.black
+  .animated-icon1 span
+    background: $black
+
+  .animated-icon2 span
+    background: $black
+
+  .animated-icon3 span
+    background: $black
+
+  .animated-icon1.open span:nth-child(1), .animated-icon1.open span:nth-child(2), .animated-icon1.open span:nth-child(3)
+    background: $white
+
 .animated-icon1 span:nth-child(1)
   top: 0px
   width: 70%
@@ -414,7 +437,7 @@ input:checked + .sw-slider:before
   &.blue-btn
     background: transparent
     border: 2px solid $blue
-    color: $blue
+    color: $blue!important
   &:hover
     opacity: 1
     color: $white
@@ -505,6 +528,10 @@ input:checked + .sw-slider:before
 // ====================================== SECTIONS =================================
 
 // ====================================== Main menu ================================
+.space
+  width: 100%
+  height: 200px
+  background: $transparent
 
 #mainmenu
   width: 100%
@@ -513,56 +540,40 @@ input:checked + .sw-slider:before
   background: $transparent
   position: absolute
   z-index: 9999
+  padding: 0
+  &.black
+    color: $black
+    .logo
+      position: absolute
+      a
+        h5
+          color: $black
+    .menu-right
+      a
+        color: $black!important
+        opacity: .8
+        &:hover
+          opacity: 1
+    ul
+      li
+        a
+          color: $black!important
+    .fullmenu-wrapper
+      .ul-wrapper
+        ul
+          li
+            a
+              color: $white!important
   .wave-icon
     position: absolute
     left: 0
     right: 0
-    bottom: 30px
+    bottom: 0
     text-align: center
     width: 100%
   .menu-short
     &.hidden
       display: none!important
-  .fullmenu-wrapper
-    position: fixed
-    width: 100%
-    background: $dblue
-    opacity: 0
-    height: 0
-    display: none
-    &.visible
-      display: block
-    .fullmenu
-      margin-top: 0
-      color: $white
-    .ul-wrapper
-      height: 100vh
-      display: flex
-      ul
-        list-style-type: none
-        max-height: 300px
-        width: 70%
-        margin-left: 0
-        li
-          flex-basis: 5rem
-          a
-            font-size: 2rem
-    .right-wrapper
-      .social
-        max-height: 300px
-        height: 100%
-        margin: auto
-        align-items: flex-end
-        a
-          text-transform: uppercase
-          color: $white
-  ul
-    list-style-type: none
-    li
-      a
-        color: $white
-        text-decoration: none
-        font-size: 120%
   .logo
     padding: 0 10% 10.5% 10%
     border: 1px solid rgba(255,255,255,0.2)
@@ -597,6 +608,64 @@ input:checked + .sw-slider:before
     .email
       a
         font-size: 100%
+  .fullmenu-wrapper
+    position: fixed
+    width: 100%
+    background: $dblue
+    opacity: 0
+    height: 0
+    display: none
+    &.visible
+      display: block
+    .fullmenu
+      margin-top: 0
+      color: $white
+    .ul-wrapper
+      height: 100vh
+      display: flex
+      ul
+        list-style-type: none
+        max-height: 300px
+        width: 70%
+        margin-left: 0
+        li
+          flex-basis: 5rem
+          a
+            font-size: 2rem
+            color: $white!important
+    .right-wrapper
+      .social
+        max-height: 300px
+        height: 100%
+        margin: auto
+        align-items: flex-end
+        a
+          text-transform: uppercase
+          color: $white
+@media screen and (max-width: 1024px)
+  #mainmenu
+    .fullmenu-wrapper
+      overflow: auto
+      .ul-wrapper
+        height: unset
+        padding-top: 200px
+        ul
+          max-height: unset
+          margin: auto
+          width: 100%
+          margin-bottom: 3rem
+          li
+            flex-basis: 4rem
+            margin: auto
+            white-space: nowrap
+ul
+  list-style-type: none
+  li
+    a
+      color: $white
+      text-decoration: none
+      font-size: 120%
+
 footer, #mainmenu
   .callback-icon
     background: $blue
@@ -663,7 +732,8 @@ footer, #mainmenu
 
   perspective: 1000px
   .form-complete
-    width: 500px
+    max-width: 500px
+    width: 100%
     height: 100%
     background: $green
     display: flex
@@ -689,17 +759,17 @@ footer, #mainmenu
     transition: all .4s ease-in-out
     transform-origin: left
     transform: translateZ(0px)
-    width: 500px
+    max-width: 500px
     opacity: 1
     h4
       color: $white
       text-transform: uppercase
   &.success
     .form-complete
-      transform: translateX(500px) rotateY(180deg)
+      transform: translateX(400px) rotateY(180deg)
       opacity: 1
     .form-order
-      transform: translateX(400px) rotateY(90deg)
+      transform: translateX(500px) rotateY(90deg)
       opacity: 0
   .container.arrows
     position: relative
@@ -753,7 +823,7 @@ footer, #mainmenu
   background-color: $white
   background-image: url(../img/water.png)
   background-position: bottom
-  background-size: auto
+  background-size: cover
   background-repeat: no-repeat
   min-height: 700px
   .svc-cards
@@ -809,7 +879,7 @@ footer, #mainmenu
   background: $dblue
   overflow: visible
   padding-top: 4rem
-  margin-bottom: 8rem
+  //padding-bottom: 8rem
   color: $white
   .adv-img
     margin-bottom: -4rem
@@ -858,6 +928,8 @@ footer, #mainmenu
 
 // ================================ Vendors & Partners =============================
 #vendors, #partners
+  background: $white
+  padding-top: 3rem
   .item.vendor, .item.partner
     //padding: 1rem
     border: 1px solid $lgray
@@ -872,11 +944,12 @@ footer, #mainmenu
     &:hover
       img
         filter: grayscale(0%)
+
 #partners
   background-color: $white
   background-image: url(../img/вода.png)
   background-position: bottom
-  background-size: auto
+  background-size: cover
   background-repeat: no-repeat
   min-height: 700px
   .item.partner
@@ -886,6 +959,7 @@ footer, #mainmenu
 // ===================================== Projects ==================================
 #projects
   background: $lgray
+  padding-top: 5rem
   .projects-wrap
     .item.project
       display: flex
@@ -945,6 +1019,52 @@ footer, #mainmenu
   .form-complete
     width: 600px
 
+#sectionCostForm
+  background: $dblue
+  .form-order-wrapper
+    .form-order
+      background: $transparent
+
+// ===================================== Tender ====================================
+#pageTender
+  .tender-wrap
+    background: $white
+    border-radius: .5rem
+    margin-bottom: 5rem
+    .tender-left
+      flex-basis: 30%
+      border-right: 1px solid $lgray
+      padding: 2rem
+      .logo
+        a
+          font-size: 1.5rem
+          color: $black
+          text-transform: uppercase
+          font-weight: bold
+  h2
+    color: $white
+
+#pageContacts
+  #ymapsContainer
+    position: relative
+    .contacts
+      position: absolute
+      right: 10%
+      top: 10%
+      min-width: 300px
+      background: $white
+      z-index: 9
+      display: flex
+      flex-direction: column
+      padding: 2rem
+      .social
+        display: flex
+        justify-content: space-between
+        a
+          text-transform: uppercase
+          font-size: .8rem
+
+
 // ====================================== YMaps ====================================
 #ymapsContainer
   min-height: 650px
@@ -978,7 +1098,37 @@ footer, #mainmenu
 
 // ====================================== About ====================================
 #about
-  background: $white
+  //background: $white
+  .about-content
+    text-align: justify
+    .water-icon
+      color: $lblue
+    h3
+      margin: 2rem 0
+#aboutFacts
+  margin: 5rem 0
+  .facts-wrap
+    display: flex
+    justify-content: space-between
+    .fact-card
+      flex-basis: 350px
+      background: transparent
+      border: unset
+      .title
+        line-height: unset
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        text-align: left
+        margin: 1rem 0
+        font-size: 1.2rem
+        text-transform: uppercase
+        span
+          margin: 0 1.2rem
+          font-size: 4rem
+          font-weight: bold
+          color: $lblue
+          line-height: 100%
 
 // ==================================== Feedback ===================================
 .bg-white
@@ -1193,14 +1343,18 @@ footer
       margin-right: 2rem
       display: flex
       align-items: center
+@media screen and (max-width: 1024px)
+  footer
+    ul
+      max-height: unset
 
 // ================================= scrollTop button ==============================
 .scrollTop
   position: fixed
-  bottom: 5rem
-  right: 5rem
+  bottom: 10%
+  right: 2%
   border-radius: 2.5rem
-  background: $green
+  background: $lblue
   width: 3rem
   height: 3rem
   color: $white
@@ -1221,13 +1375,128 @@ footer
 .index-ul
   list-style-type: none
 
-// ====================================== Team =====================================
-.member-card
-  border-bottom: 1px solid #e5e5e5
-  .name
-    font-weight: bold
-    font-size: 1.3rem
+// ===================================== Services ==================================
+#pageServices
+  .service-card
+    padding: 1rem 0
+    border: 0
+    border-top: 1px solid $lgray
+    .svc-img
+      flex-basis: 30%
+      img
+        max-width: 100%
+    .card-body
+      display: flex
+      flex-direction: row
+      .svc-icon
+        margin: 0 1rem
+    .card-footer
+      background: transparent
+      border-top: 0
 
+#pageService
+  .content
+    h3
+      margin: 1.5rem 0
+
+// ===================================== Feedback ==================================
+#pageFeedback
+  .feedback-card
+    padding: 1rem 0
+    border: 0
+    border-top: 1px solid $lgray
+    .fdb-img
+      flex-basis: 30%
+      img
+        max-width: 100%
+    .card-body
+      display: flex
+      flex-direction: column
+      .fdb-icon
+        margin: 0 1rem
+        color: $lblue
+// ==================================== Pagination =================================
+.pagination
+  margin: 2rem 0
+  display: flex
+  justify-content: flex-end
+  .pagination-wrap
+    display: flex
+    align-items: center
+    justify-content: center
+    .arrow
+      a
+        color: $black
+    .pages
+      display: flex
+      justify-content: space-around
+      min-width: 300px
+      li
+        color: $black
+        font-size: 1rem
+        flex-basis: 50px
+        text-align: center
+        display: flex
+        align-items: center
+        justify-content: center
+        &.active
+          background: $blue
+          width: 50px
+          height: 50px
+          border-radius: 25px
+        a
+          color: $black
+          font-size: 1rem
+// ===================================== Projects ==================================
+#pageProjects
+  h4
+    font-weight: bold
+  .slider-wrap
+    margin-bottom: 5px
+    margin-right: -10px
+    position: relative
+    #slickArrowsPageProjects
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      z-index: 99999
+      display: flex
+      width: 100%
+      justify-content: space-between
+      align-items: center
+      height: 70%
+    .slick-page-projects
+      max-height: 350px
+      margin-bottom: 1rem
+      overflow: hidden
+      .project-item
+        display: flex!important
+        img
+          margin: auto
+          max-width: 100%
+    .slick-page-projects-nav
+      width: auto
+      max-width: 100%
+      max-height: 100px
+      min-height: 100px
+      display: flex
+      align-items: center
+      .project-item
+        display: flex!important
+        box-sizing: border-box
+        border-radius: .5rem
+        max-width: 95%
+        margin: .2rem
+        img
+          max-width: 100%
+          min-height: 100px
+          height: 100px
+          margin: auto
+          display: flex
+      .slick-current
+        .project-item
+          outline: 3px solid $lblue
 // ==================================== Requisites =================================
 #requisites
   .requisite-card

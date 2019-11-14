@@ -148,6 +148,10 @@ module.exports = {
             template: './src/pug/views/service.pug'
         }),
         new HtmlWebpackPlugin({
+            filename: 'tender.html',
+            template: './src/pug/views/tender.pug'
+        }),
+        new HtmlWebpackPlugin({
             filename: 'projects.html',
             template: './src/pug/views/projects.pug'
         }),

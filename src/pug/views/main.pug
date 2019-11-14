@@ -1,11 +1,13 @@
 extends ../includes/layout
-
+include ../includes/mixins
+block variables
+    - let page = "index"
 block content
     include ../includes/carousel
     include ../includes/services
     include ../includes/service-cards
     include ../includes/advantages
     include ../includes/vendors
-    include ../includes/projects
+    +projects(page)
     include ../includes/partners
     include ../includes/map

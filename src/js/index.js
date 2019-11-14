@@ -77,7 +77,7 @@ $(()=>{
 
     $('#carousel .form-order, #map .form-order').submit((e) => {
         e.preventDefault();
-        $(e.target).parent().parent().addClass('success');
+        $(e.target).closest('.form-order-wrapper').addClass('success');
     });
 
 // =========================================== Ymaps ===========================================
@@ -248,6 +248,46 @@ $(()=>{
         }]
     };
 
+    let slickPageProjects = {
+        infinite: false,
+        arrows: true,
+        dots: false,
+        autoplay: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        appendArrows: $('#slickArrowsPageProjects'),
+        prevArrow: $('#slickArrowsPageProjects .prev'),
+        nextArrow: $('#slickArrowsPageProjects .next'),
+        asNavFor: '.slick-page-projects-nav',
+        fade: true,
+        responsive: [{
+            breakpoint: '768',
+            settings: {
+                arrows: false,
+                dots: false,
+                slidesToShow: 1
+            }
+        }]
+    };
+    let slickPageProjectsNav = {
+        infinite: false,
+        arrows: false,
+        dots: false,
+        autoplay: false,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.slick-page-projects',
+        focusOnSelect: true,
+        responsive: [{
+            breakpoint: '768',
+            settings: {
+                arrows: false,
+                dots: false,
+                slidesToShow: 3
+            }
+        }]
+    };
+
     let slickNews = {
         infinite: false,
         arrows: true,
@@ -351,6 +391,8 @@ $(()=>{
     $('.carousel').slick(slickCarousel);
     $('.slick-vendors').slick(slickVendors);
     $('.slick-projects').slick(slickProjects);
+    $('.slick-page-projects').slick(slickPageProjects);
+    $('.slick-page-projects-nav').slick(slickPageProjectsNav);
     $('.slick-news').slick(slickNews);
     $('.slick-articles').slick(slickArticles);
     $('.slick-partners').slick(slickPartners);

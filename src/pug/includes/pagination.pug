@@ -1,16 +1,18 @@
-.pagination-wrap.justify-content-center.justify-content-lg-end.mr-0.mr-lg-5
-    .page-prev
-        a(href="#")
-            i.fas.fa-chevron-left
-    .page-item
-        a(href="#") 1
-    .page-item.active 2
-    .page-item
-        a(href="#") 3
-    .page-item
-        a(href="#") 4
-    .page-item
-        a(href="#") 5
-    .page-next
-        a(href="#")
-            i.fas.fa-chevron-right
+.pagination
+    .pagination-wrap.d-flex.flex-row
+        .arrow.arrow-left
+            a(href="#")
+                i.fas.fa-chevron-down
+        ul.pages.d-flex.flex-row
+            li.active 1
+            li
+                a(href="#") 2
+            li
+                a(href="#") 3
+            li
+                a(href="#") 4
+            li
+                a(href="#") 5
+        .arrow.arrow-left
+            a(href="#")
+                i.fas.fa-chevron-down

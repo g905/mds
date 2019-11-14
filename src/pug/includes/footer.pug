@@ -1,37 +1,37 @@
 - let menuItems = {"about":"О компании", "services": "Услуги", "projects":"Готовые проекты", "three":"Реквизиты", "four": "Вопрос-ответ", "five": "Партнеры"}
-footer.p-5
+footer.p-3.p-lg-5
     .container
-        .row.d-flex.flex-row.align-items-lg-stretch
-            .col-2
+        .row.d-flex.flex-column.flex-lg-row.align-items-center.align-items-lg-stretch
+            .col-12.col-lg-2.mb-3.mb-lg-0
                 .policy-wrap
                     .copy &copy; 2019 мдс-строй
                     .conf.mb-2
                         a(href="#") Политика конфиденциальности
-            .col-4
-                .footer-menu.ml-5
-                    ul.d-flex.flex-wrap.flex-column
+            .col-12.col-lg-4.mb-3.mb-lg-0
+                .footer-menu.ml-0.ml-lg-5
+                    ul.d-flex.flex-wrap.flex-column.w-100
                         each item, idx in menuItems
                             li
                                 a(href="#")=item
 
-            .col-4.d-flex.justify-content-around
-                .contacts
-                    .phone
+            .col-12.col-lg-4.d-flex.flex-column.flex-lg-row.justify-content-around.mb-3.mb-lg-0
+                .contacts.d-flex.flex-row.flex-lg-column.flex-wrap.mb-3.mb-lg-0
+                    .phone.order-1.order-lg-1
                         a(href="tel:+78008008080") +7(800)800-80-80
-                    .email
+                    .email.order-3.order-lg-2
                         a(href="mailto:login@gmail.com") login@gmail.com
-                    .callback
+                    .callback.order-2.order-lg-3
                         .callback-icon.m-0.d-flex
                             i.fas.fa-phone
-                .social
+                .social.d-flex.flex-row.flex-lg-column.flex-wrap
                     .twitter
                         a(href="#") twitter
                     .whatsapp
                         a(href="#") whatsapp
                     .instagram
                         a(href="#") instagram
-            .col-2
-                .last-wrap.text-right
-                    .write-us
+            .col-12.col-lg-2.mb-3.mb-lg-0
+                .last-wrap.text-center.text-lg-right
+                    .write-us.mb-3.mb-lg-0
                         button.btn.mds-btn.transparent Напишите нам
                     a(href="#") Разработано в Electron

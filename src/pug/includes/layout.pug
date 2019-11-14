@@ -1,8 +1,9 @@
+block variables
 doctype html
 
 html(lang="ru")
     include head
-    body
+    body(class=(page === "tender" ? "tender" : ""))
         //include loader
         //include header
         include mainmenu

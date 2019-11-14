@@ -1,0 +1,25 @@
+extends ../includes/layout
+block variables
+    - page = "tender"
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "О компании"}]
+    //+breadcrumbs(crumbs
+
+    section#pageTender
+        .container
+            .title
+                h2 Приглашение на тендер
+            .tender-wrap.d-flex.flex-column.flex-lg-row
+                .tender-left.d-flex.flex-row.flex-lg-column
+                    .logo
+                        a(href="#")
+                            img(src="img/logo.png")
+                            | мдс-строй
+                    .title.text-left
+                        h3 Давайте станем партнерами
+                    .content.text-justify
+                        p Здесь вы можете оставить информацию о проекте и свои контактные данные.
+                        p Специалисты компании «МДС» оперативно отреагируют на заявку, связавшись с вами по телефону.
+                .tender-right
+                    .tender-form-wrap
+                        h3 form

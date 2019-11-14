@@ -1,26 +1,67 @@
 extends ../includes/layout
-include ../includes/mixins
-
+block variables
+    - let page = "project"
 block content
     - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "О компании"}]
-    +breadcrumbs(crumbs)
-    include ../includes/carousel
+    //+breadcrumbs(crumbs
 
-    section#topContent.mb-5
+    section#pageProjects
         .container
-            .about-content.text-justify
-                p Равным образом сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствует насущным потребностям. Постоянное информационно-пропагандистское обеспечение нашей деятельности в значительной степени обуслваливает создание модели развития. Равным образом сложившаяся структура организации обеспечивает широкому кругу.
+            .row
+                .col-12.col-lg-7.p-0
+                    .slider-wrap
+                        #slickArrowsPageProjects
+                            .prev
+                                i.fas.fa-chevron-down
+                            .next
+                                i.fas.fa-chevron-down
+                        .slick.slick-page-projects
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                            .item.project-item
+                                img(src="img/Group-1.jpg")
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                        .slick.slick-page-projects-nav
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                            .item.project-item
+                                img(src="img/Group-1.jpg")
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                            .item.project-item
+                                img(src="img/basic.jpg")
+                            .item.project-item
+                                img(src="img/basic.jpg")
 
-    include ../includes/advantages
+                .col-12.col-lg-4
+                    .project-info.ml-5
+                        .info-item
+                            h4 Объект:
+                            p жк «Заречный квартал», секция 6
+                        .info-item
+                            h4 Объект:
+                            p жк «Заречный квартал», секция 6
+                        .info-item
+                            h4 Объект:
+                            p жк «Заречный квартал», секция 6
+                        .info-item
+                            h4 Объект:
+                            p жк «Заречный квартал», секция 6
+                        .info-item
+                            h4 Объект:
+                            p жк «Заречный квартал», секция 6
+                        .info-bottom.mt-5
+                            button.btn.mds-btn.blue-btn Расчет стоимости
+                .offset-0.offset.lg-1
 
-    section#bottomContent
-        .container
-            .about-content.text-justify
-                p Безусловно, внедрение современных методик играет определяющее значение для системы массового участия. Как уже неоднократно упомянуто, диаграммы связей и по сей день остаются уделом либералов, которые жаждут быть своевременно верифицированы. Повседневная практика показывает, что базовый вектор развития требует анализа системы обучения кадров, соответствующей насущным потребностям.
-                p Таким образом, реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствующей насущным потребностям. Каждый из нас понимает очевидную вещь: убежденность некоторых оппонентов предоставляет широкие возможности для глубокомысленных рассуждений. Банальные, но неопровержимые выводы, а также ключевые особенности структуры проекта ограничены исключительно образом мышления! Равным образом, граница обучения кадров не дает нам иного выбора, кроме определения приоритизации разума над эмоциями. Как уже неоднократно упомянуто, элементы политического процесса представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть ограничены исключительно образом мышления. А еще независимые государства разоблачены. Приятно, граждане, наблюдать, как базовые сценарии поведения пользователей, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут подвергнуты целой серии независимых исследований.
-
-    include ../includes/partners
-
-    +feedback('about')
-
-    include ../includes/history
+    //-include ../includes/about_facts
+    //-include ../includes/vendors
+    //-include ../includes/advantages
+    //-include ../includes/partners
+    +projects("projects")
+    include ../includes/cost_form

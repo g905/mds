@@ -1,65 +1,55 @@
 extends ../includes/layout
-include ../includes/mixins
-
+block variables
+    - let page = "contacts"
 block content
-    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Контакты"}]
-    +breadcrumbs(crumbs)
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "О компании"}]
+    //+breadcrumbs(crumbs
 
-    section#contacts.mb-5
-        .container
-            .title.mb-5
-                h3 Контакты
-            .adresses.d-flex.flex-wrap.justify-content-between
-                - let y = 0
-                while y < 1
-                    .addr-card.p-3
-                        .title.mb-5
-                            h4 г. Москва - центральный офис
-                        .addr-desc.d-flex.flex-column
-                            .addr.mb-3
-                                h5 Адрес:
-                                p Волоколамское Шоссе, д. 116, офис 438
-                            .on-map.mb-3
-                                a.addr-link(href="#" data-address="Волоколамское Шоссе, д. 116") Посмотреть на карте
+    section#pageContacts.mb-5
+        .container-fluid
+            .row
+                .col-12.col-lg-6.p-0
+                    .ymap-container#ymapsContainer
+                        .contacts
+                            .address.mb-3
+                                h3 Адрес
+                                p г. Ижевск, ул. Ижевская, 123
                             .phone.mb-3
-                                h5 Номер телефона:
-                                a(href="tel:+79128577186") +79128577186
-                            .email
-                                h5 E-mail:
-                                a(href="mailto:login@mail.com") login@mail.com
-                    - y ++
-                .addr-card.p-3
-                    .title.mb-5
-                        h4 г. Дмитров - производственная площадка
-                    .addr-desc.d-flex.flex-column
-                        .addr.mb-3
-                            h5 Адрес:
-                            p 141800, Московская Область, город Дмитров, ул.Промышленная, д. 27
-                        .on-map.mb-3
-                            a.addr-link(href="#" data-address="141800, Московская Область, город Дмитров, ул.Промышленная, д. 27") Посмотреть на карте
-                        //.phone.mb-3
-                            h5 Номер телефона:
-                            a(href="tel:+79128577186") +79128577186
-                        .email
-                            h5 E-mail:
-                            a(href="mailto:login@mail.com") login@mail.com
-                .addr-card.p-3
-                    .title.mb-5
-                        h4 г. Вельск - офис
-                    .addr-desc.d-flex.flex-column
-                        .addr.mb-3
-                            h5 Адрес:
-                            p ул. 50 лет октября, дом 79, корпус Д
-                        .on-map.mb-3
-                            a.addr-link(href="#" data-address="Московская область, Вельск, ул. 50 лет октября, дом 79, корпус Д") Посмотреть на карте
-                        .phone.mb-3
-                            h5 Номер телефона:
-                            a(href="tel:8(495)776-87-88") 8(495)776-87-88
-                        .email
-                            h5 E-mail:
-                            a(href="mailto:info@zavodpr.ru") info@zavodpr.ru
-            .ymapsContacts.my-5#ymapsContacts
-
-
-
-            include ../includes/team
+                                h3 Телефон
+                                a(href="tel:+7 (800) 800-80-80") +7 (800) 800-80-80
+                            .email.mb-3
+                                h3 Email
+                                a(href="mailto:login@gmail.com") login@gmail.com
+                            .hours.mb-3
+                                h3 Время работы
+                                p ПН-ВС: 9:00-18:00 без выходных
+                            .social
+                                .instagram
+                                    a(href="#") instagram
+                                .twitter
+                                    a(href="#") twitter
+                                .whatsapp
+                                    a(href="#") whatsapp
+                .col-12.col-lg-4.p-0.ml-5
+                    .form-order-wrapper.map-form-wrapper
+                        .form-complete
+                            h2.text-white Успешно отправлено
+                        .form-order.text-justify.m-auto
+                            .title.mt-0.mb-3.text-left
+                                h4 Написать нам
+                            form#writeusForm
+                                .form-group.m-4
+                                    input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                    .small.text-danger#callbackNameHelp
+                                .form-group.m-4
+                                    input.form-control(type="phone" name="phone" placeholder="Номер телефона")
+                                    .small.text-danger#callbackPhoneHelp
+                                .form-group.m-4
+                                    input.form-control(type="email" name="email" placeholder="Email")
+                                    .small.text-danger#callbackEmailHelp
+                                .form-group.m-4
+                                    .g-recaptcha.d-flex.justify-content-center(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
+                                .form-group.m-4
+                                    p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
+                                button.btn.mds-btn.mx-4(type="submit" name="btnSubmit")#callbackSubmit Отправить
+                .offset-0.offset-lg-2
