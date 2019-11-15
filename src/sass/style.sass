@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic')
 
 $font-stack: -apple-system, BlinkMacSystemFont,Roboto,'Open Sans','Helvetica Neue',sans-serif
-$font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
+//$font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
 
 $trans: all .2s ease-in-out
 
@@ -1106,6 +1106,15 @@ footer, #mainmenu
     max-width: 300px
 
 // ====================================== About ====================================
+.about-img
+  img
+    width: 100%
+.about-content
+  text-align: justify
+  h3
+    margin: 1rem 0
+  .water-icon
+    color: $lblue
 #about
   //background: $white
   .about-content
@@ -1276,21 +1285,37 @@ footer, #mainmenu
       background: $blue
 
 
-// ====================================== Info =====================================
-#info
+// ====================================== Page Info =====================================
+#pageInfo
+  .info-items
+    justify-content: left
   .info-item
-    max-width: 95%
+    flex-basis: 33%
     display: flex!important
-    margin: auto
+    &.double-info-item
+      flex-basis: 66%
     .card
-      background: $white
+      background: none
+      border: none
+      //margin-right: 1rem
+      padding: 1rem
+      text-align: justify
+      .date
+        margin: .5rem 0
+        color: #828282
+      .card-img
+        padding: 0
       .card-title
-        padding: 20px 20px 0 20px
-        margin: 0
+        //padding: 20px 20px 0 20px
+        margin: .5rem 0
       .card-body
         position: relative
         top: 0
+        padding: 0
       .card-footer
+        padding: 0
+        background: none
+        border: 0
         img
           width: 100%
           height: 100%
@@ -1525,6 +1550,18 @@ footer
       .slick-current
         .project-item
           outline: 3px solid $lblue
+// ================================= Page info detail ==============================
+#pageInfoDetail
+  .content
+    ul
+      li
+        font-size: small
+    h3
+      margin: 1rem 0
+  .info-desc
+    img
+      width: 100%
+      margin: 1rem 0
 // ==================================== Requisites =================================
 #requisites
   .requisite-card

@@ -3,24 +3,33 @@ include ../includes/mixins
 
 block content
     - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Новости/Статьи"}]
-    +breadcrumbs(crumbs)
+    //+breadcrumbs(crumbs)
 
-    section#info
+    section#pageInfo
         .container
             .title
-                h3 Новости/Статьи
-            .info-items.d-flex.flex-column.flex-lg-row
+                h2 Новости
+            .info-items.d-flex.flex-column.flex-lg-row.flex-wrap
                 - let i = 1
+                - let double = false
                 while i <= 11
-
-                    .item.info-item.ml-0.mr-0.mr-lg-4.my-3
+                    if((i === 5) || (i === 9))
+                        - double = true
+                        - img = "img/info2.jpg"
+                    else
+                        - double = false
+                        - img = "img/info1.jpg"
+                    .item.info-item.my-3(class=(double ? "double-info-item" : ""))
                         .card
-                            .card-title.title
+                            .card-img
+                                img.img-fluid.w-100(src=img)
+                            .date 25.94.1284
+                            .card-title
                                 h4 Название новости в две строки
                             .card-body
-                                p В своем стремлении повысить качество жизни, они забывают, что внедрение... <a href="#">Читать далее</a>
-                            .card-footer.p-0
-                                img(src="img/Главная/img-news-1.png")
+                                p В своем стремлении повысить качество жизни, они забывают, что внедрение...
+                                .card-footer
+                                    <a href="#">Читать далее</a>
                     - i++
             .info-pagination.m-5
                 include ../includes/pagination
