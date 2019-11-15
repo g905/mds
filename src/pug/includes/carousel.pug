@@ -2,32 +2,49 @@ section#carousel
     .slider.carousel
         - let n = 1
         while n < 5
-            .item(style="background-image: url('img/bg.jpg')" id = 'slickItem' + n)
-                .slide-content.d-flex.flex-wrap.justify-content-between.align-items-center.text-justify.m-auto
-                    .slide-text.d-flex.flex-wrap.flex-xl-nowrap.flex-row.align-items-start
-                        .slide-icon.mt-5.w-100
-                            include ../../img/waves-icon.svg
-                        .slide-c
-                            .title.mb-5.mt-3.text-justify
-                                h2="Повседневная пркатика " + n
-                            .content.mb-5
-                                h4 Показывает, что существующая теория является качественно новой ступенью современного выполнения задачи. Также как постоянный количественный рост и сфера нашей активности предопределяет высокую потребность
+            if (n === 2)
+                .item(style="background-image: url('img/tub.jpg')" id = 'slickItem' + n)
+                    .slide-content.d-flex.flex-wrap.justify-content-between.align-items-center.text-justify.m-auto
+                        .slide-text.d-flex.flex-wrap.flex-xl-nowrap.flex-row.align-items-start
+                            .slide-icon.mt-5.w-100
+                                include ../../img/waves-icon.svg
+                            .slide-c
+                                .title.mb-5.mt-3.text-justify
+                                    h2="Повседневная пркатика " + n
+                                .content.mb-5
+                                    h4 Показывает, что существующая теория является качественно новой ступенью современного выполнения задачи. Также как постоянный количественный рост и сфера нашей активности предопределяет высокую потребность
+
+            else
+                .item(style="background-image: url('img/bg.jpg')" id = 'slickItem' + n)
+                    .slide-content.d-flex.flex-wrap.justify-content-between.align-items-center.text-justify.m-auto
+                        .slide-text.d-flex.flex-wrap.flex-xl-nowrap.flex-row.align-items-start
+                            .slide-icon.mt-5.w-100
+                                include ../../img/waves-icon.svg
+                            .slide-c
+                                .title.mb-5.mt-3.text-justify
+                                    h2="Повседневная пркатика " + n
+                                .content.mb-5
+                                    h4 Показывает, что существующая теория является качественно новой ступенью современного выполнения задачи. Также как постоянный количественный рост и сфера нашей активности предопределяет высокую потребность
             - n++
-    .container.arrows.d-none.d-lg-block
-        .slick-arrows#slickArrowsCarousel
-            button.slick-arrow.prev
-                i.fas.fa-chevron-left
-            button.slick-arrow.next
-                i.fas.fa-chevron-right
-    .container
+    .slick-arrows#slickArrowsCarousel
+        button.slick-arrow.prev
+            i.fas.fa-chevron-left
+        .slick-dots-wrap#slickDotsCarousel
+        button.slick-arrow.next
+            i.fas.fa-chevron-right
+
+    //.container.arrows.d-none.d-lg-block
+
+    .container.form-container
         .row
-            .col-md-6.offset-md-6.col-lg-4.offset-lg-7.align-self-end
+            .offset-0.offset-lg-8
+            .col-12.col-lg-4.align-self-end.bg-white
                 .form-order-wrapper
                     .form-scene
                         .form-complete
                             h2.text-white Успешно отправлено
                         .form-order.text-center.m-auto
-                            .title.mt-0.mb-3.text-center
+                            .title.mt-3.mt-lg-0.mb-3.text-center
                                 h4 Оставьте заявку
                             p И получите файл с 5 этапами согласования нового объекта
                             form#callbackForm

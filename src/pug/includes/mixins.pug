@@ -29,6 +29,18 @@ mixin projects(page)
                                 h4 Название проекта
                                 .bottom
                                     a(href="#") Подробнее
+                    .item.project
+                        .card.project-card(style="background-image: url('img/3.jpg')")
+                            .card-title
+                                h4 Название проекта
+                                .bottom
+                                    a(href="#") Подробнее
+            .slick-arrows#slickArrowsProjects
+                button.slick-arrow.prev
+                    i.fas.fa-chevron-left
+                .slick-dots-wrap#slickDotsProjects
+                button.slick-arrow.next
+                    i.fas.fa-chevron-right
 mixin page(href, title, active)
     li
         h3

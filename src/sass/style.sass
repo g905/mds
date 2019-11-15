@@ -360,7 +360,7 @@ input:checked + .sw-slider:before
 
 #social
   position: absolute
-  bottom: 0
+  bottom: 6rem
   writing-mode: tb-rl
   transform: rotate(-180deg)
   height: 100%
@@ -475,37 +475,69 @@ input:checked + .sw-slider:before
 
 .slick-dots
   display: flex
-  max-width: 40%
+  //max-width: 40%
   justify-content: center
   list-style-type: none
-  padding: 3rem 0 1rem 0
+  padding: 3rem 1rem
+  align-items: center
+  height: 50px
+  li
+    align-items: center
+    display: flex
+    width: 30px
+    justify-content: center
 .slick-dots li button
-  background: $lblue
+  background: $white
+  opacity: .8
   border-radius: 100%
   border: unset
   color: transparent
-  width: 16px
-  height: 16px
+  width: 12px
+  height: 12px
   margin-right: 10px
+  transition: $trans
 .slick-dots li.slick-active
   outline: none
   button
-    background: $blue
+    width: 16px
+    height: 16px
+    background: $white
+    opacity: 1
+
+#slickArrowsVendors, #slickArrowsProjects, #slickArrowsPartners
+  align-items: center
+  button.slick-arrow
+    svg
+      color: $black
+      opacity: .7
+    &.slick-disabled
+      svg
+        opacity: .5
+  .slick-dots-wrap
+    padding-bottom: .2rem
+    .slick-dots
+      li
+        button
+          background: #1c1c1c!important
+      li.slick-active
+        button
+          background: $lblue!important
 
 // ==================================== Slick Arrows ===============================
 
 .slick-arrows
   display: flex
-  width: 100px
+  //width: 100px
   justify-content: space-between
-  float: right
+  width: fit-content
+  margin: auto
 .slick-arrow
   background: transparent
   border: 0
   padding: 0
   .svg-inline--fa
-    background: $blue
-    border: 2px solid $white
+    //background: $blue
+    //border: 2px solid $white
     color: $white
     width: 40px
     height: 40px
@@ -543,10 +575,12 @@ input:checked + .sw-slider:before
   position: absolute
   z-index: 9999
   padding: 0
+  .menu-btn
+    z-index: 99999
   &.black
     color: $black
     .logo
-      position: absolute
+      //position: absolute
       a
         h5
           color: $black
@@ -584,24 +618,23 @@ input:checked + .sw-slider:before
     //opacity: .9
     //transition: $trans
     //cursor: pointer
-    max-width: 200px
-    min-width: 110px
+    //max-width: 200px
+    //min-width: 110px
+    width: fit-content
     margin: auto
     a
       text-decoration: none
-      img, h5
-        max-width: 150px
-        margin: auto
-      img
-        min-width: 50px
-      h5
-        color: $white
-        font-weight: bold
-        font-size: 80%
-        text-align: center
-        min-width: 50px
-        white-space: nowrap
-        max-width: 100px
+    h5
+      color: $white
+      font-weight: bold
+      font-size: 80%
+      text-align: center
+      white-space: nowrap
+    img, h5
+      width: fit-content
+      display: flex
+      margin: auto
+
   .menu-right
     a
       color: $white
@@ -619,6 +652,7 @@ input:checked + .sw-slider:before
     display: none
     &.visible
       display: block
+      z-index: 9
     .fullmenu
       margin-top: 0
       color: $white
@@ -631,7 +665,9 @@ input:checked + .sw-slider:before
         width: 70%
         margin-left: 0
         li
-          flex-basis: 5rem
+          flex-basis: 5.5rem
+          display: flex
+          align-items: center
           a
             font-size: 2rem
             color: $white!important
@@ -650,7 +686,7 @@ input:checked + .sw-slider:before
       overflow: auto
       .ul-wrapper
         height: unset
-        padding-top: 200px
+        //padding-top: 200px
         ul
           max-height: unset
           margin: auto
@@ -698,6 +734,12 @@ footer, #mainmenu
 
 #carousel
   margin-bottom: 0
+  position: relative
+  background: $white
+  .form-container
+    height: 0
+    bottom: 0
+    position: relative
   .slick-slider
     min-height: 100vh
   .item
@@ -705,19 +747,20 @@ footer, #mainmenu
     overflow: hidden
     background-size: cover
     background-position: center
-    min-height: 100vh
+    height: 100vh
     padding-top: 100px
     .slide-icon
       color: $lblue
     .container
       color: $white
     .slide-content
-      height: 100vh
+      height: 100%
       max-width: 80%
       .slide-text
         max-width: 45%
         .title
           text-transform: unset
+          word-break: break-word
           h3,h2,h1
             font-family: $font-stack
             color: $white
@@ -725,14 +768,94 @@ footer, #mainmenu
         .content
           h4
             color: $white
-  .form-order-wrapper
-    position: absolute
-    bottom: calc(50vh - 300px)
-    left: auto
+  .slick-arrows
+    position: relative
+    display: flex
+    justify-content: flex-start
     width: 100%
-.form-order-wrapper
+    bottom: 8rem
+    padding-left: 26%
+@media screen and (max-width: 1024px)
+  #carousel
+    .slick-slider
+      .item
+        min-height: 1400px
+        .slide-content
+          padding: 1rem!important
+        .container
+          padding-bottom: 0
+        .slide-content
+          max-width: 100%
+          padding: 100px 30px
+          height: fit-content
+          .slide-text
+            max-width: 100%
+            margin: auto
+    .form-order-wrapper
+      max-width: 95%
+      bottom: 8.4rem
+      left: 0
+      right: 0
+      margin: auto
+    .slick-arrows
+      bottom: calc(600px + 6.4rem)
+      justify-content: center
+      left: auto
+      display: none
 
+.form-order-wrapper
+  position: absolute
+  bottom: 8rem
+  left: auto
+  width: 500px
+  height: 600px
+  background: $transparent
   perspective: 1000px
+  .form-scene
+    width: 100%
+    height: 100%
+    background: $transparent
+    transform-style: preserve-3d
+    transition: all .4s ease-in-out
+    position: relative
+    .form-complete
+      background: rgba(0,0,0,.5)
+      width: 100%
+      height: 100%
+      transform: translateX(-250px) translateZ(-250px) rotateY(-90deg)
+      opacity: 0
+      transition: all .4s ease-in-out
+      border-radius: 1rem 0
+      display: flex
+      align-items: center
+      h2
+        text-align: center
+    .form-order
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: rgba(0,0,0,.5)
+      transition: all .4s ease-in-out
+      opacity: 1
+      border-radius: 1rem 0
+      margin: 0!important
+      color: $white
+      padding: 1.5rem
+      h4
+        color: $white
+        text-transform: uppercase
+  &.success
+    .form-scene
+      transform: translateX(250px) translateZ(-250px) rotateY(90deg)
+      .form-complete
+        opacity: 1
+      .form-order
+        opacity: 0
+
+//.form-order-wrapper
+  background: $yellow
   .form-complete
     max-width: 500px
     width: 100%
@@ -779,25 +902,6 @@ footer, #mainmenu
     position: absolute
     bottom: 50px
     right: 50px
-
-
-@media screen and (max-width: 1024px)
-  #carousel
-    .slick-slider
-      .item
-        min-height: 1300px
-        .container
-          padding-bottom: 0
-        .slide-content
-          max-width: 100%
-          padding: 100px 30px
-          height: fit-content
-          .slide-text
-            max-width: 100%
-            margin: auto
-    .form-order-wrapper
-      max-width: 95%
-      bottom: 10px
 
 // ====================================== Services =================================
 #services
@@ -1011,22 +1115,21 @@ footer, #mainmenu
   color: $white
   h2
     margin: 0
-  .map-form-wrapper
-    display: flex
-    height: 100%
-    align-items: center
-    &.success
-      .form-complete
-        transform: translateX(600px) rotateY(180deg)
-        opacity: 1
+  .form-order-wrapper
+    bottom: calc(50% - 300px)
+
+@media screen and (max-width: 1024px)
+  #map
+    .form-order-wrapper
+      bottom: 0
+      position: relative
+      min-width: 300px
+      width: auto
       .form-order
-        transform: translateX(600px) rotateY(90deg)
-        opacity: 0
-  .form-order
-    background: none
-    width: 600px
-  .form-complete
-    width: 600px
+        padding: 0
+  #carousel
+    .form-order
+      padding: 0
 
 #sectionCostForm
   background: $dblue

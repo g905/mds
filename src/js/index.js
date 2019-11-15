@@ -199,11 +199,12 @@ $(()=>{
         useTransform: true,
         infinite: true,
         arrows: true,
-        dots: false,
+        dots: true,
         autoplay: true,
         slidesToShow: 1,
         cssEase: "ease-out",
-        appendArrows: $('#slickArrowsCarousel'),
+        appendDots: '#slickDotsCarousel',
+        //appendArrows: $('#slickArrowsCarousel'),
         prevArrow: $('#slickArrowsCarousel .prev'),
         nextArrow: $('#slickArrowsCarousel .next')
     };
@@ -215,7 +216,7 @@ $(()=>{
         autoplay: false,
         slidesToShow: 4,
         slidesToScroll: 1,
-        appendArrows: $('#slickArrowsVendors'),
+        appendDots: '#slickDotsVendors',
         prevArrow: $('#slickArrowsVendors .prev'),
         nextArrow: $('#slickArrowsVendors .next'),
         responsive: [{
@@ -235,7 +236,7 @@ $(()=>{
         autoplay: false,
         slidesToShow: 3,
         slidesToScroll: 1,
-        appendArrows: $('#slickArrowsProjects'),
+        appendDots: '#slickDotsProjects',
         prevArrow: $('#slickArrowsProjects .prev'),
         nextArrow: $('#slickArrowsProjects .next'),
         responsive: [{
@@ -335,9 +336,9 @@ $(()=>{
         autoplay: false,
         slidesToShow: 5,
         slidesToScroll: 1,
-        appendArrows: $('#arrowsPartners'),
-        prevArrow: $('#arrowsPartners .prev'),
-        nextArrow: $('#arrowsPartners .next'),
+        appendDots: '#slickDotsPartners',
+        prevArrow: $('#slickArrowsPartners .prev'),
+        nextArrow: $('#slickArrowsPartners .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
@@ -393,10 +394,10 @@ $(()=>{
     $('.slick-projects').slick(slickProjects);
     $('.slick-page-projects').slick(slickPageProjects);
     $('.slick-page-projects-nav').slick(slickPageProjectsNav);
-    $('.slick-news').slick(slickNews);
-    $('.slick-articles').slick(slickArticles);
+    //$('.slick-news').slick(slickNews);
+    //$('.slick-articles').slick(slickArticles);
     $('.slick-partners').slick(slickPartners);
-    $('.slick-history').slick(slickHistory);
-    $('.slick-related').slick(slickRelated)
+    //$('.slick-history').slick(slickHistory);
+    //$('.slick-related').slick(slickRelated)
 
 });
