@@ -179,9 +179,109 @@ li:focus,
   outline: none!important
   box-shadow: none!important
 
-.form-control:not(select)
+.form-control:not(select), .form-control:not(select):focus
+  color: #666
   border-radius: 1rem
+  background: transparent
+  border: none
+  border-bottom: 2px solid $dgray
+  border-radius: 0
+  &::placeholder
+    color: #666
 
+// ======================================== Checkbox =============================
+.label-cbx
+  user-select: none
+  cursor: pointer
+  margin-bottom: 0
+  input:checked
+    & + .checkbox
+      border-color: #20C2E0
+      svg
+        path
+          fill: #20C2E0
+        polyline
+          stroke-dashoffset: 0
+  &:hover
+    .checkbox
+      svg
+        path
+          stroke-dashoffset: 0
+
+  .checkbox
+    position: relative
+    top: 2px
+    float: left
+    margin-right: 8px
+    width: 20px
+    height: 20px
+    border: 2px solid #C8CCD4
+    border-radius: 3px
+    svg
+      position: absolute
+      top: -2px
+      left: -2px
+      path
+        fill: none
+        stroke: #20C2E0
+        stroke-width: 2
+        stroke-linecap: round
+        stroke-linejoin: round
+        stroke-dasharray: 71px
+        stroke-dashoffset: 71px
+        transition: all .6s ease
+      polyline
+        fill: none
+        stroke: #FFF
+        stroke-width: 2
+        stroke-linecap: round
+        stroke-linejoin: round
+        stroke-dasharray: 18px
+        stroke-dashoffset: 18px
+        transition: all .3s ease
+
+  > span
+    pointer-events: none
+    vertical-align: middle
+
+.invisible
+  position: absolute
+  z-index: -1
+  width: 0
+  height: 0
+  opacity: 0
+
+// ====================================== Input type file ========================
+[type="file"]
+  border: 0
+  clip: rect(0, 0, 0, 0)
+  height: 1px
+  overflow: hidden
+  padding: 0
+  position: absolute !important
+  white-space: nowrap
+  width: 1px
+
+[type="file"] + label
+  background-color: $white
+  border: 2px solid $blue
+  border-radius: 4rem
+  color: $blue
+  cursor: pointer
+  display: inline-block
+  padding: 1rem 2rem
+  transition: $trans
+  line-height: 100%
+  text-transform: uppercase
+  font-size: 14px
+
+[type="file"]:focus + label,
+[type="file"] + label:hover
+  background-color: $blue
+  color: $white
+
+[type="file"]:focus + label
+  //outline: 1px dotted #000
 // ====================================== Selection color ========================
 
 ::selection
@@ -431,16 +531,14 @@ input:checked + .sw-slider:before
   transition: $trans
   white-space: nowrap
   opacity: .8
-  max-width: 200px
-  min-width: 200px
   line-height: 100%
-  padding: 15px
+  padding: 1rem 2rem
   text-transform: uppercase
   &.blue-btn
     background: transparent
     border: 2px solid $blue
     color: $blue!important
-  &:hover
+  &:hover:not(.disabled)
     opacity: 1
     color: $white
 .transparent
@@ -595,6 +693,9 @@ input:checked + .sw-slider:before
         a
           color: $black!important
     .fullmenu-wrapper
+      .fullmenu-right
+        a
+          color: $white
       .ul-wrapper
         ul
           li
@@ -768,6 +869,8 @@ footer, #mainmenu
         .content
           h4
             color: $white
+  .form-order-wrapper
+    bottom: 10rem
   .slick-arrows
     position: relative
     display: flex
@@ -793,7 +896,7 @@ footer, #mainmenu
             margin: auto
     .form-order-wrapper
       max-width: 95%
-      bottom: 8.4rem
+      bottom: .4rem
       left: 0
       right: 0
       margin: auto
@@ -805,9 +908,9 @@ footer, #mainmenu
 
 .form-order-wrapper
   position: absolute
-  bottom: 8rem
+  //bottom: 8rem
   left: auto
-  width: 500px
+  width: 100%
   height: 600px
   background: $transparent
   perspective: 1000px
@@ -830,6 +933,7 @@ footer, #mainmenu
       align-items: center
       h2
         text-align: center
+        margin: auto
     .form-order
       position: absolute
       top: 0
@@ -1117,6 +1221,8 @@ footer, #mainmenu
     margin: 0
   .form-order-wrapper
     bottom: calc(50% - 300px)
+    h2
+      margin: auto
 
 @media screen and (max-width: 1024px)
   #map
@@ -1133,9 +1239,15 @@ footer, #mainmenu
 
 #sectionCostForm
   background: $dblue
+  .col-cf
+    min-height: 650px
   .form-order-wrapper
+    bottom: calc(50% - 300px)
+    width: 100%
     .form-order
       background: $transparent
+      h4
+        color: $white
 
 // ===================================== Tender ====================================
 #pageTender
@@ -1153,6 +1265,15 @@ footer, #mainmenu
           color: $black
           text-transform: uppercase
           font-weight: bold
+    .tender-right
+      flex-basis: 70%
+    .fields
+      color: #666
+      font-size: smaller
+      .field
+        font-size: smaller
+        color: $lblue
+        margin-right: .5rem
   h2
     color: $white
 
@@ -1175,6 +1296,16 @@ footer, #mainmenu
         a
           text-transform: uppercase
           font-size: .8rem
+  .col-cost
+    min-height: 650px
+  .form-order-wrapper
+    bottom: calc(50% - 300px)
+    width: 100%
+    .form-order
+      background: $transparent
+      color: $black
+      h4
+        color: $black
 
 
 // ====================================== YMaps ====================================
@@ -1609,19 +1740,29 @@ footer
     font-weight: bold
   .slider-wrap
     margin-bottom: 5px
-    margin-right: -10px
+    //margin-right: -10px
     position: relative
     #slickArrowsPageProjects
       position: absolute
-      top: 0
+      top: 33%
       left: 0
       right: 0
       z-index: 99999
       display: flex
-      width: 100%
+      width: 95%
+      margin: auto
       justify-content: space-between
       align-items: center
-      height: 70%
+      height: 0
+      cursor: pointer
+      .next
+        transform: rotateZ(-90deg)
+        svg
+          color: $black
+      .prev
+        transform: rotateZ(90deg)
+        svg
+          color: $black
     .slick-page-projects
       max-height: 350px
       margin-bottom: 1rem

@@ -2,28 +2,30 @@ section#sectionCostForm
     .container-fluid
         .row
             .offset-0.offset-lg-2
-            .col-12.col-lg-4.p-0
-                .form-order-wrapper.map-form-wrapper
-                    .form-complete
-                        h2.text-white Успешно отправлено
-                    .form-order.text-justify.m-auto
-                        .title.mt-0.mb-3.text-left
-                            h4 Хотите узнать стоимость услуг?
-                        form#costForm
-                            .form-group.m-4
-                                input.form-control(type="text" name="name" placeholder="Ваше имя")
-                                .small.text-danger#callbackNameHelp
-                            .form-group.m-4
-                                input.form-control(type="email" name="email" placeholder="Email")
-                                .small.text-danger#callbackEmailHelp
-                            .form-group.m-4
-                                input.form-control(type="phone" name="phone" placeholder="Номер телефона")
-                                .small.text-danger#callbackPhoneHelp
-                            .form-group.m-4
-                                .g-recaptcha.d-flex.justify-content-center(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
-                            .form-group.m-4
-                                p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
-                            button.btn.mds-btn.mx-4(type="submit" name="btnSubmit")#callbackSubmit Отправить
+            .col-12.col-lg-4.p-0.col-cf
+                .form-order-wrapper.pr-0.pr-lg-3
+                    .form-scene
+                        .form-complete
+                            h2.text-white Успешно отправлено
+                        .form-order.text-center.m-auto
+                            .title.mt-3.mt-lg-0.mb-3.text-center
+                                h4 Оставьте заявку
+                            p И получите файл с 5 этапами согласования нового объекта
+                            form#costForm
+                                .form-group.m-4
+                                    input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                    .small.text-danger#costFormNameHelp
+                                .form-group.m-4
+                                    input.form-control(type="phone" name="phone" placeholder="Номер телефона")
+                                    .small.text-danger#costFormPhoneHelp
+                                .form-group.m-4
+                                    input.form-control(type="email" name="email" placeholder="Email")
+                                    .small.text-danger#costFormEmailHelp
+                                .form-group.m-4
+                                    .g-recaptcha(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
+                                .form-group.m-4
+                                    p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
+                                button.btn.mds-btn.mx-4(type="submit" name="btnSubmit")#costFormSubmit Получить файл
             .col-12.col-lg-6.p-0
                 .cost-form-img
                     img(src="img/cost.jpg")

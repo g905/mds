@@ -14,8 +14,20 @@ section#mainmenu(data-aos="fade-down" data-aos-delay="5000" class=(menu_class))
                         .logo
                             img(src="img/logo.png")
                             h5 МДС-СТРОЙ
-                    .col-3.offset-lg-5
-                        .contacts
+                    .col-3.col-lg-5
+                        .fullmenu-right.text-right.justify-content-around.align-items-end.align-items-xl-start.mt-3.d-none.d-md-flex.flex-column.flex-xl-row
+                            .contacts.d-flex.flex-column.text-nowrap
+                                .phone
+                                    a(href="tel:+78008008080") +7 (800) 800-80-80
+                                .email
+                                    a(href="mailto:login@gmail.com") login@gmail.com
+                            .callback.ml-5.d-flex.align-items-center
+                                a(href="#") Обратный звонок
+                                .callback-icon.d-none.d-md-flex.text-white
+                                    i.fas.fa-phone.d-flex
+                        .callback.d-flex.align-items-center.mt-2.d-md-none
+                            .callback-icon.d-flex.text-white.m-auto
+                                i.fas.fa-phone.d-flex
                 .row.m-0
                     .col-12.ul-wrapper
                         ul.d-flex.flex-column.flex-wrap.mt-5
@@ -78,7 +90,8 @@ section#mainmenu(data-aos="fade-down" data-aos-delay="5000" class=(menu_class))
                         a(href="#") Обратный звонок
                         .callback-icon.d-none.d-md-flex.text-white
                             i.fas.fa-phone.d-flex
-                    .callback-icon.d-block.d-md-none
-                        i.fas.fa-phone
+                .callback.d-flex.align-items-center.mt-2.d-md-none
+                    .callback-icon.d-flex.text-white.m-auto
+                        i.fas.fa-phone.d-flex
 if(page !== "index")
     .space

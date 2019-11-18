@@ -1,4 +1,5 @@
 extends ../includes/layout
+include ../includes/mixins
 block variables
     - page = "tender"
 block content
@@ -10,7 +11,7 @@ block content
             .title
                 h2 Приглашение на тендер
             .tender-wrap.d-flex.flex-column.flex-lg-row
-                .tender-left.d-flex.flex-row.flex-lg-column
+                .tender-left.d-flex.flex-column
                     .logo
                         a(href="#")
                             img(src="img/logo.png")
@@ -20,6 +21,61 @@ block content
                     .content.text-justify
                         p Здесь вы можете оставить информацию о проекте и свои контактные данные.
                         p Специалисты компании «МДС» оперативно отреагируют на заявку, связавшись с вами по телефону.
-                .tender-right
+                .tender-right.p-5
                     .tender-form-wrap
-                        h3 form
+                        form
+                            .row
+                                .col-12.col-lg-6
+                                    .form-group.mb-4
+                                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                        .small.text-danger#callbackNameHelp
+                                .col-12.col-lg-6
+                                    .form-group.mb-4
+                                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                        .small.text-danger#callbackNameHelp
+                            .row
+                                .col-12
+                                    .form-group.mb-4
+                                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                        .small.text-danger#callbackNameHelp
+                            .row
+                                .col-12.col-lg-6
+                                    .form-group.mb-4
+                                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                        .small.text-danger#callbackNameHelp
+                                .col-12.col-lg-6
+                                    .form-group.mb-4
+                                        input.form-control(type="text" name="name" placeholder="Ваше имя")
+                                        .small.text-danger#callbackNameHelp
+                            .row
+                                .col-12
+                                    .choose-services
+                                        .title.text-left
+                                            h5 Выберите услуги, которые вас интересуют
+                                        .checkboxes.mb-5
+                                            .form-check
+                                                +cbx('Проектирование', 'cbx1')
+                                                +cbx('Монтаж', 'cbx2')
+                                                +cbx('Пусконаладочные работы', 'cbx3')
+                                                +cbx('Сервисное обслуживание', 'cbx4')
+                                .col-12
+                                    .form-group.mb-4
+                                        textarea.form-control(name="response" placeholder="Описание проекта" rows="1")
+                                        .small.text-danger#modalOrderProductHelp
+                                .col-12
+                                    .form-group.mb-4
+                                        textarea.form-control(name="response" placeholder="Вставьте ссылку на файлы" rows="1")
+                                        .small.text-danger#modalOrderProductHelp
+                                .col-12.mb-4
+                                    input(type="file")#file
+                                    label(for="file") Или загрузите файл
+                                    .small.text-black-50 PDF, DOC, DOCX, RTF, PPT, PPS, PPTX, JPEG, JPG, GIF, PNG, ZIP, RAR. Максимальный объем файла — 10 Мб
+                                .col-12.mb-3
+                                    .submit-block.d-flex.align-items-center
+                                        button.btn.mds-btn.disabled(type="submit") Отправить приглашение
+                                        .fields.d-flex.flex-wrap.ml-5
+                                            span.w-100 Осталось заполнить поля:
+                                            .field Ваше имя
+                                            .field Ваше имя
+                                            .field Ваше имя
+                                            .field Ваше имя

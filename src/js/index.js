@@ -11,8 +11,8 @@ import 'slick-carousel'
 //import List from 'list.js'
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList, faPhone } from '@fortawesome/free-solid-svg-icons'
-library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faPhone, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList );
+import { faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList, faPhone, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faPhone, faSearch, faChevronDown, faChevronLeft, faChevronRight, faTh, faThList, faArrowRight, faArrowLeft );
 
 // ====================================== Replace fa-icons with SVGs ===========================
 dom.watch();
@@ -75,10 +75,10 @@ $(()=>{
 
 // ================================== Carousel form complete ===================================
 
-    $('#carousel .form-order, #map .form-order').submit((e) => {
+    /*$('#carousel .form-order, #map .form-order, #sectionCostForm .form-order, #pageContacts .form-order').submit((e) => {
         e.preventDefault();
         $(e.target).closest('.form-order-wrapper').addClass('success');
-    });
+    });*/
 
 // =========================================== Ymaps ===========================================
     ymaps.ready(init);
